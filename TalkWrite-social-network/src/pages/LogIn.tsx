@@ -2,9 +2,9 @@
 
 const LogIn = () => {
   return (
-    <div>
+    <div className="logIn-container">
       <h1>TalkWrite</h1>
-      <form>
+      <form className="logIn-form">
         <div>
           <label htmlFor="email">Email:</label>
           <input type="email" id="email" name="email" required />
