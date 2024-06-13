@@ -1,13 +1,19 @@
 
-import './App.css'
+import './App.css';
+import LogIn from './pages/LogIn';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <LogIn />,
+  }
+]);
 
 function App() {
-
   return (
-    <>
-     <p>SASA</p>
-    </>
-  )
+    <RouterProvider router={router} />
+  );
 }
 
-export default App
+export default App;
