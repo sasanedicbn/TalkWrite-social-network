@@ -29,7 +29,7 @@
 }
 
 .logIn-form div {
-  margin-bottom: 25px;
+  margin-bottom: 18px;
   display: flex;
   flex-direction: column;
 }
@@ -61,8 +61,12 @@
 }
 
 .error{
-  margin-top: .5rem;
+  margin-top: .4rem;
   color:rgb(206, 26, 26);
+}
+.error-global{
+  color:rgb(206, 26, 26);
+  margin-bottom: .8rem;
 }
 button.disabled {
   background-color: grey;
