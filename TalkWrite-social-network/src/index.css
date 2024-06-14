@@ -60,10 +60,11 @@
   transition: background-color 0.3s;
 }
 
-.logIn-form button:hover {
-  background-color: #0056b3;
-}
 .error{
   margin-top: .5rem;
   color:rgb(206, 26, 26);
+}
+button.disabled {
+  background-color: grey;
+  cursor: not-allowed;
 }

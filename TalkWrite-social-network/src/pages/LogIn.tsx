@@ -10,8 +10,10 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 const LogIn = () => {
-  const { register, handleSubmit, setError, formState: { errors } } = useForm<FormFields>({
-    resolver: zodResolver(schema)
+  const { register, handleSubmit, setError, formState: { errors, isValid } } = useForm<FormFields>({
+    resolver: zodResolver(schema),
+    mode: 'onChange'
+
   });
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
@@ -40,7 +42,7 @@ const LogIn = () => {
           {errors.password && <p className="error">{errors.password.message}</p>}
         </div>
         {errors.root && <p className="error">{errors.root.message}</p>}
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={!isValid} className={!isValid ? 'disabled' : ''}>Submit</button>
       </form>
     </div>
   );
