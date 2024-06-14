@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import {  useNavigate } from 'react-router-dom';
 
 const schema = z.object({
   email: z.string().email("Invalid email address"),
@@ -10,6 +11,7 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 const LogIn = () => {
+  const navigate = useNavigate()
   const { register, handleSubmit, setError, formState: { errors, isValid } } = useForm<FormFields>({
     resolver: zodResolver(schema),
     mode: 'onChange'
@@ -31,11 +33,12 @@ const LogIn = () => {
       if (!response.ok) {
         throw new Error('Login failed');
       }
+     
 
       const result = await response.json();
       console.log(result);
       console.log(data);
-      
+      navigate('/home')
     } catch (error: any) {
       console.error(error);
       setError("root", {
