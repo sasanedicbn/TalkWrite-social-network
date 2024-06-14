@@ -1,8 +1,10 @@
+import SideBarHome from "./SideBarHome";
+
 const Home = () => {
     return(
-        <div>
-            HOME
-        </div>
+       <div>
+          <SideBarHome/>
+       </div>
     )
 }
 export default Home;
