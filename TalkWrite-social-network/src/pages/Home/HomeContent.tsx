@@ -1,13 +1,13 @@
 import { FaMicrophone } from "react-icons/fa";
 
-const HomeContainer = () => {
+const HomeContent = () => {
     return(
-        <div>
+        <div className="container-homecontent">
             <div>
               <form>
                 <div>
                  <img src="./public/profile.img"></img>
-                 <input type="text" placeholder="What's happening" id="input-happening"/>
+                 <input type="text" placeholder="What's happening" className="input-happening" />
                 </div>
                 <div>
                   <FaMicrophone size={50} color="blue" />
@@ -18,4 +18,4 @@ const HomeContainer = () => {
         </div>
     )
 }
-export default HomeContainer;
+export default HomeContent;
