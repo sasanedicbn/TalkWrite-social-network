@@ -1,8 +1,10 @@
 
+import { Provider } from 'react-redux';
 import './App.css';
 import Home from './pages/Home/Home';
 import LogIn from './pages/LogIn';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import store from './store/store';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
+    <Provider store={store}>
     <RouterProvider router={router} />
+    </Provider>
   );
 }
 
