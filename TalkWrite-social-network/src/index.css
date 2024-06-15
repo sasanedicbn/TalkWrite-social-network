@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
+body{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 /* LOG IN */
 .logIn-container {
@@ -77,7 +80,6 @@ button.disabled {
 .home-container{
   display: flex;
   justify-content: space-evenly;
-
   height: 800px;
 }
 form img{
@@ -89,7 +91,7 @@ form img{
 .sideBarHome-home{
  display: flex;
  align-items: center;
- 
+ justify-content: space-between;
 }
 .container-homecontent{
   border-left: 1px solid rgb(214, 214, 214);
@@ -146,4 +148,16 @@ form img{
 }
 .input-happening:focus{
   border-color: rgb(163, 160, 160);;
+}
+/* SIDEBAR-HOME */
+.sideBarHome-container{
+  width: 100px;
+}
+.sideBarHome-container h1{
+  margin-top: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+.sideBarHome-home p{
+  font-weight: bold;
+  color: #1b5da3;
 }
