@@ -81,8 +81,9 @@ button.disabled {
   display: flex;
   justify-content: space-evenly;
   height: 800px;
+  background-color: #f8f8f8;
 }
-form img{
+form img, .profile-img{
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -160,4 +161,8 @@ form img{
 .sideBarHome-home p{
   font-weight: bold;
   color: #1b5da3;
+}
+/* ProfileHome */
+.container-profileHome{
+  margin-top: 1rem;
 }

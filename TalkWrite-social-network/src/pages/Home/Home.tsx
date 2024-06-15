@@ -1,12 +1,13 @@
 import HomeContent from "./HomeContent";
 import SideBarHome from "./SideBarHome";
+import ProfileHome from "./ProfileHome";
 
 const Home = () => {
     return(
        <div className="home-container">
           <SideBarHome/>
           <HomeContent/>
-          <div>SLIKA PROFILNA</div>
+          <ProfileHome/>
        </div>
     )
 }
