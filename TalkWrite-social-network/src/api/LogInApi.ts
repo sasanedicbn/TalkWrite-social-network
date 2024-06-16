@@ -11,13 +11,14 @@ export const handleLogin = async (data, navigate, setError) => {
             },
             body: JSON.stringify(data)
         });
-
+        console.log(data, navigate, setError)
         if (!response.ok) {
             const errorData = await response.json();
             let errorMessage = 'Login failed';
 
             if (response.status === 400) {
-                errorMessage = errorData.message || 'Bad request';
+                console.log(response.status)
+                errorMessage = errorData.message || 'Incorect password';
             } else if (response.status === 401) {
                 errorMessage = 'Unauthorized';
             } else if (errorData.message) {
@@ -27,9 +28,10 @@ export const handleLogin = async (data, navigate, setError) => {
             throw new Error(errorMessage);
         }
 
-        const result = await response.json();
+        const {token} = await response.json();
         navigate('/home');
-        return result;
+        console.log(token)
+        localStorage.setItem('jwt', token)
     } catch (error) {
         console.error('Login error:', error);
         setError("root", {
