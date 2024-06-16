@@ -11,7 +11,7 @@ export const handleLogin = async (data, navigate, setError) => {
             },
             body: JSON.stringify(data)
         });
-        console.log(data, navigate, setError)
+      
         if (!response.ok) {
             const errorData = await response.json();
             let errorMessage = 'Login failed';
