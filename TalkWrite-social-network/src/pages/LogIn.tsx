@@ -13,6 +13,7 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 const LogIn = () => {
+    let results;
     const navigate = useNavigate();
     const { register, handleSubmit, setError, formState: { errors, isValid } } = useForm<FormFields>({
         resolver: zodResolver(schema),
@@ -20,13 +21,8 @@ const LogIn = () => {
     });
 
     const onSubmit: SubmitHandler<FormFields> = async (data) => {
-        const result = await handleLogin(data, navigate);
+        const result = await Login(data, navigate);
         console.log(result);
-        UserApi()
-        if (result.status === 'error') {
-            console.log('radi');
-            setError('root', { type: 'manual', message: result.message });
-        }
     };
 
     return (
@@ -41,7 +37,7 @@ const LogIn = () => {
                     <label htmlFor="password">Password:</label>
                     <input {...register('password')} type="password" id="password" name="password" />
                 </div>
-                {errors.root && <p className="error-global">{errors.root.message}</p>}
+                {results.status === 'error' ? <p className="error-global">{errors.root.message}</p> : ''}
                 <button type="submit" disabled={!isValid} className={!isValid ? 'disabled' : ''}>Submit</button>
             </form>
         </div>

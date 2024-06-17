@@ -1,4 +1,4 @@
-export const handleLogin = async (data, navigate) => {
+export const Login = async (data, navigate) => {
     const baseUrl = 'https://api.hr.constel.co/api/v1';
 
     try {
