@@ -19,7 +19,6 @@ export const Login = async (data, navigate) => {
 
         const { token } = await response.json();
         localStorage.setItem('jwt', token);
-        navigate('/home');
         return { status: 'success' };
     } catch (error) {
         console.error('Login error:', error);

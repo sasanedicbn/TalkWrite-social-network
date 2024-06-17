@@ -2,8 +2,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useNavigate } from 'react-router-dom';
-import { handleLogin } from '../api/LogInApi';
-import { UserApi } from '../api/UserApi';
+import { useState } from 'react';
+import { Login } from '../api/LogInApi';
 
 const schema = z.object({
     email: z.string().email(),
@@ -13,9 +13,9 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 const LogIn = () => {
-    let results;
+    const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
-    const { register, handleSubmit, setError, formState: { errors, isValid } } = useForm<FormFields>({
+    const { register, handleSubmit, formState: { errors, isValid } } = useForm<FormFields>({
         resolver: zodResolver(schema),
         mode: 'onChange'
     });
@@ -23,6 +23,11 @@ const LogIn = () => {
     const onSubmit: SubmitHandler<FormFields> = async (data) => {
         const result = await Login(data, navigate);
         console.log(result);
+        if (result.status === 'error') {
+            setErrorMessage(result.message);
+        } else {
+            navigate('/home');
+        }
     };
 
     return (
@@ -32,12 +37,14 @@ const LogIn = () => {
                 <div>
                     <label htmlFor="email">Email:</label>
                     <input {...register('email')} type="email" id="email" name="email" />
+                    {errors.email && <p className="error">{errors.email.message}</p>}
                 </div>
                 <div>
                     <label htmlFor="password">Password:</label>
                     <input {...register('password')} type="password" id="password" name="password" />
+                    {errors.password && <p className="error">{errors.password.message}</p>}
                 </div>
-                {results.status === 'error' ? <p className="error-global">{errors.root.message}</p> : ''}
+                {errorMessage && <p className="error-global">{errorMessage}</p>}
                 <button type="submit" disabled={!isValid} className={!isValid ? 'disabled' : ''}>Submit</button>
             </form>
         </div>
@@ -45,3 +52,4 @@ const LogIn = () => {
 };
 
 export default LogIn;
+
