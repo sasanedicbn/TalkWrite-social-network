@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useNavigate } from 'react-router-dom';
 import { handleLogin } from '../api/LogInApi';
+import { UserApi } from '../api/UserApi';
 
 const schema = z.object({
     email: z.string().email(),
@@ -21,6 +22,7 @@ const LogIn = () => {
     const onSubmit: SubmitHandler<FormFields> = async (data) => {
         const result = await handleLogin(data, navigate);
         console.log(result);
+        UserApi()
         if (result.status === 'error') {
             console.log('radi');
             setError('root', { type: 'manual', message: result.message });
