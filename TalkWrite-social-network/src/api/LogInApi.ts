@@ -1,5 +1,3 @@
-
-
 export const handleLogin = async (data, navigate) => {
     const baseUrl = 'https://api.hr.constel.co/api/v1';
 
@@ -11,22 +9,20 @@ export const handleLogin = async (data, navigate) => {
             },
             body: JSON.stringify(data)
         });
-      
-        if (!response.ok) {
-            const {status, error} = await response.json();
-            // let errorMessage = 'Login failed';
 
-            if (response.status === 400) {
-                console.log(response.status)
-                console.log(status,error)
-              return {status,error}
+        if (!response.ok) {
+            const { error } = await response.json();
+            if (response.status === 400 || response.status === 401) {
+                return { status: 'error', message: error.message };
+            }
         }
-    }
-        const {token} = await response.json();
+
+        const { token } = await response.json();
+        localStorage.setItem('jwt', token);
         navigate('/home');
-        console.log(token)
-        localStorage.setItem('jwt', token)
+        return { status: 'success' };
     } catch (error) {
         console.error('Login error:', error);
+        return { status: 'error', message: error.message || 'Something went wrong' };
     }
 };

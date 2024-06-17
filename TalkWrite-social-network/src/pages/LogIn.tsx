@@ -1,4 +1,3 @@
-
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -20,7 +19,12 @@ const LogIn = () => {
     });
 
     const onSubmit: SubmitHandler<FormFields> = async (data) => {
-        await handleLogin(data, navigate, setError);
+        const result = await handleLogin(data, navigate);
+        console.log(result);
+        if (result.status === 'error') {
+            console.log('radi');
+            setError('root', { type: 'manual', message: result.message });
+        }
     };
 
     return (

@@ -166,3 +166,9 @@ form img, .profile-img{
 .container-profileHome{
   margin-top: 1rem;
 }
+.error-message{
+  width: 200px;
+  height: 100px;
+  background-color: orange;
+  transition: all 0.3s ease-in-out;
+}
