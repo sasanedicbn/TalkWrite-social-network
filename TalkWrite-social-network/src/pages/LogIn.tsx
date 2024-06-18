@@ -37,12 +37,10 @@ const LogIn = () => {
                 <div>
                     <label htmlFor="email">Email:</label>
                     <input {...register('email')} type="email" id="email" name="email" />
-                    {errors.email && <p className="error">{errors.email.message}</p>}
                 </div>
                 <div>
                     <label htmlFor="password">Password:</label>
                     <input {...register('password')} type="password" id="password" name="password" />
-                    {errors.password && <p className="error">{errors.password.message}</p>}
                 </div>
                 {errorMessage && <p className="error-global">{errorMessage}</p>}
                 <button type="submit" disabled={!isValid} className={!isValid ? 'disabled' : ''}>Submit</button>
