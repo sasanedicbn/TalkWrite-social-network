@@ -1,4 +1,5 @@
 import { FaMicrophone } from "react-icons/fa";
+import SinglePost from "../Post/SinglePost";
 
 const HomeContent = () => {
     return(
@@ -15,6 +16,7 @@ const HomeContent = () => {
                 </div>
               </form>
             </div>
+            <SinglePost/>
         </div>
     )
 }
