@@ -2,6 +2,7 @@ import { FaRegCalendarAlt } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { formatedDate } from '../../constants/constants';
 import ContentPost from './ContentPost';
+import PostBtns from './PostBtns';
 
 const UserPost = () => {
     const postsData = useSelector(state => state.posts.posts);
@@ -25,6 +26,7 @@ const UserPost = () => {
                     </div>
                 </div>
                 <ContentPost image={post.image} text={post.text} />
+                <PostBtns/>
                 </>
             ))}
         </div>
