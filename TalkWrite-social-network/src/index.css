@@ -256,6 +256,9 @@ form img, .profile-img{
   transition: background-color 0.3s ease;
 }
 .btn-like:hover,.btn-comment:hover{
-  background-color: white;
-  color: rgb(212, 212, 212);
+  color: white;
+  background-color: rgb(177, 176, 176);
+}
+.like-icon, .comment-icon{
+ width: 20px;
 }
