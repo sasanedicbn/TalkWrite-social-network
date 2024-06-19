@@ -209,3 +209,8 @@ form img, .profile-img{
 .userPost-container div div p:nth-child(2){
   font-size: 20px;
 }
+.userPost-date{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
