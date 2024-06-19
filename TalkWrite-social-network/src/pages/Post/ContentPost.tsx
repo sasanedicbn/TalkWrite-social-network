@@ -1,10 +1,9 @@
 
 const ContentPost = ({image,text}) => {
 
- console.log(image, text)
     return(
-        <div >
-            <img src={image} alt={image}/>
+        <div className="contentPost-container">
+            <img src={image} alt={image} className="contentPost-img"/>
             <p>{text}</p>
         </div>
     )
