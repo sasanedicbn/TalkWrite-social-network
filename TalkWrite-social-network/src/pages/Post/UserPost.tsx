@@ -1,4 +1,6 @@
+import { FaRegCalendarAlt } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import { formatedDate } from '../../constants/constants';
 
 const UserPost = () => {
     const postsData = useSelector(state => state.posts.posts);
@@ -17,7 +19,7 @@ const UserPost = () => {
                         </div>
                     </div>
                     <div>
-                        <p>{post.created_at}</p>
+                        <p><FaRegCalendarAlt size={24} />{formatedDate(post.created_at)}</p>
                     </div>
                 </div>
             ))}
