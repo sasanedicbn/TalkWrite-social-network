@@ -231,6 +231,7 @@ form img, .profile-img{
 #postsBtns-container{
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   gap:1rem;
 
 }
@@ -260,5 +261,15 @@ form img, .profile-img{
   background-color: rgb(177, 176, 176);
 }
 .like-icon, .comment-icon{
- width: 20px;
+ width: 22px;
+}
+.btn-liked{
+  background-color: #227fe2;
+  color: #fff;
+  cursor: pointer;
+  border:none;
+  width: 80px;
+  height: 30px;
+  border-radius: .5rem;
+  transition: background-color 0.3s ease;
 }
