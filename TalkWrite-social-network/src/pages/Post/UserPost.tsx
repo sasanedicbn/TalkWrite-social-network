@@ -26,7 +26,7 @@ const UserPost = () => {
                     </div>
                 </div>
                 <ContentPost image={post.image} text={post.text} />
-                <PostBtns liked={post.liked} likes={post.likes} comments={post.comments}/>
+                <PostBtns liked={post.liked} likes={post.likes} comments={post.comments} post_id={post.post_id}/>
                 </>
             ))}
         </div>

@@ -1,7 +1,7 @@
 import { FaRegComment, FaRegHeart } from 'react-icons/fa';
 
-const PostBtns = ({ liked, likes, comments }) => {
-    console.log(liked, likes, comments);
+const PostBtns = ({ liked, likes, comments, post_id }) => {
+    console.log(liked, likes, comments, post_id);
 
     return (
         <div id="postsBtns-container">
