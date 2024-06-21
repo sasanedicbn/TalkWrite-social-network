@@ -15,7 +15,11 @@ const postsSlice = createSlice({
    },
    toggleLike(state, action){
     const postId = action.payload
-    const post = state.posts.find(post => post.post_id === postId); // Promenjeno ovde
+    console.log('ovdeeeeee',postId)
+    const post = state.posts.posts.find(state => state.post_id === postId)
+    if(post){
+      console.log('radi')
+    }
 
     console.log('sasa', post)
    }

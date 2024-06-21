@@ -4,7 +4,6 @@ const SinglePost = () => {
     return(
         <div className="singlePost-container">
           <UserPost/>
-         
         </div>
     )
 }
