@@ -2,6 +2,7 @@ import { FaRegComment, FaRegHeart } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import ClickedPost from './ClickedPost';
+import { SinglePostApi } from '../../api/SinglePostApi';
 
 const PostBtns = ({ liked, likes, comments, post_id }) => {
     const [activeId, setActiveId] = useState(null);
@@ -14,7 +15,10 @@ const PostBtns = ({ liked, likes, comments, post_id }) => {
 
     const showPostHandler = (id) => {
         setActiveId(id);
+        SinglePostApi(id)
     };
+
+    console.log()
 
     console.log(post_id, activeId);
 
