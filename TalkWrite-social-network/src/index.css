@@ -273,3 +273,12 @@ form img, .profile-img{
   border-radius: .5rem;
   transition: background-color 0.3s ease;
 }
+/* CLICKEDPOST */
+.clickedPost-container{
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 500px;
+  height: 500px;
+  background-color: red;
+}
