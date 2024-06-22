@@ -1,7 +1,10 @@
-export const SinglePostApi = async (id) => {
+import { getSinglePost } from "../store/postsSlice";
+
+export const SinglePostApi = async (id, dispatch) => {
     const baseUrl = 'https://api.hr.constel.co/api/v1';
+    const jwt = localStorage.getItem('jwt');
+
     try {
-        const jwt = localStorage.getItem('jwt');
         if (!jwt) {
             throw new Error('JWT token not found');
         }
@@ -19,13 +22,11 @@ export const SinglePostApi = async (id) => {
         }
 
         const data = await response.json();
-        console.log(data)
-        return data;
+        console.log('datafromAPI', data);
+        dispatch(getSinglePost(data));
+        // return data;
     } catch (error) {
         console.log('Fetch error: ', error);
         throw error;
     }
 }
-
-
-//fetch(`${baseUrl}/posts/${id}` za single post

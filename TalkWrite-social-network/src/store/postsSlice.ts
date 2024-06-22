@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   posts:[],
+  singlePost:{},
 };
 
 const postsSlice = createSlice({
@@ -20,12 +21,16 @@ const postsSlice = createSlice({
     if(post){
       console.log('radi')
     }
-
     console.log('sasa', post)
+   },
+   getSinglePost(state,action){
+    state.singlePost = action.payload;
+    console.log('[[[[[[[[[[[',state.singlePost)
    }
+   
   },
 });
 
-export const { getPosts, toggleLike} = postsSlice.actions;
+export const { getPosts, toggleLike, getSinglePost} = postsSlice.actions;
 
 export default postsSlice.reducer;
