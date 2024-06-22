@@ -1,5 +1,4 @@
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { formatedDate } from "../../constants/constants";
+import Date from "./Date";
 
 const HeaderPosts = ({ post }) => {
     console.log(post, '----------------')
@@ -12,9 +11,7 @@ const HeaderPosts = ({ post }) => {
                     <p>{post.user.full_name}</p>
                 </div>
             </div>
-            <div>
-                <p className='userPost-date'><FaRegCalendarAlt size={24} />{formatedDate(post.created_at)}</p>
-            </div>
+            <Date post={post}/>
         </div>
     );
 };

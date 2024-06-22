@@ -274,15 +274,31 @@ form img, .profile-img{
   transition: background-color 0.3s ease;
 }
 /* CLICKEDPOST */
-.clickedPost-container{
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  width: 600px;
-  background-color: red;
-  z-index:10;
+.clickedPost-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
 }
-.clickedPost-parent{
+
+.clickedPost-container {
+  position: fixed; 
+  left: 52%;
+  transform: translateX(-50%);
+  top: 20px;
+  bottom: 20px;
+  width: 600px;
+  background-color: white;
+  z-index: 10;
+  max-width: 100%;
+  padding: 1rem;
+  overflow-y:scroll;
+}
+
+.clickedPost-parent {
   display: flex;
   flex-direction: column;
   gap: 2rem;
