@@ -278,12 +278,12 @@ form img, .profile-img{
   position: absolute;
   left: 20px;
   top: 20px;
-  width: 500px;
-  height: 500px;
+  width: 600px;
   background-color: red;
   z-index:10;
 }
 .clickedPost-parent{
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
