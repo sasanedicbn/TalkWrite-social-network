@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import ContentPost from './ContentPost';
-import PostBtns from './PostBtns';
+import PostBtns from './Btns/PostBtns';
 import HeaderPosts from './HeaderPosts';
 
 const UserPost = () => {

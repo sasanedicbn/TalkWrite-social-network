@@ -1,9 +1,9 @@
-import { FaRegComment, FaRegHeart } from 'react-icons/fa';
+import { FaRegComment, } from 'react-icons/fa';
 import { useState } from 'react';
-import ClickedPost from './ClickedPost';
-import { SinglePostApi } from '../../api/SinglePostApi';
+import ClickedPost from '../ClickedPost';
+import { SinglePostApi } from '../../../api/SinglePostApi';
 import { useDispatch } from 'react-redux';
-import { getSinglePost } from '../../store/postsSlice';
+import LikeBtn from './LikeBtn';
 
 const PostBtns = ({ liked, likes, comments, post_id }) => {
     const [activeId, setActiveId] = useState(null);
@@ -17,9 +17,7 @@ const PostBtns = ({ liked, likes, comments, post_id }) => {
 
     return (
         <div id="postsBtns-container">
-            <button className={liked ? 'btn-liked' : 'btn-like'}>
-                <FaRegHeart size={24} className='like-icon' />{likes}
-            </button>
+           <LikeBtn liked={liked} likes={likes}/>
             <button className="btn-comment" onClick={() => showPostHandler(post_id)}>
                 <FaRegComment size={24} className='comment-icon' />{comments}
             </button>
