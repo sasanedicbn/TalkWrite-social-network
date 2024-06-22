@@ -1,8 +1,16 @@
+// import { useSelector } from "react-redux";
+// import HeaderPosts from "./HeaderPosts";
+
 const ClickedPost = () => {
-    return(
+    // const post = useSelector(state => state.posts.singlePost);
+
+   
+    return (
         <div className="clickedPost-container">
-          <p>SASA</p>
+            {/* <HeaderPosts post={post} /> */}
+            <p>SASA</p>
         </div>
-    )
+    );
 }
+
 export default ClickedPost;
