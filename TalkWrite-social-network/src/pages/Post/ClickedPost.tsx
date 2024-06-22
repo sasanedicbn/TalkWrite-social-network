@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import HeaderPosts from "./HeaderPosts";
 import ContentPost from "./ContentPost";
+import Comment from "./Comment";
 
 const ClickedPost = () => {
     const post = useSelector(state => state.posts.singlePost.post);
@@ -21,6 +22,7 @@ const ClickedPost = () => {
                 <div className="clickedPost-parent">
                   <HeaderPosts post={post} />
                   <ContentPost image={post.image} text={post.text} />
+                  <Comment/>
                 </div>
             </div>
         </div>

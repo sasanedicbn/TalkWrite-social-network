@@ -15,7 +15,7 @@ type FormFields = z.infer<typeof schema>;
 const LogIn = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors, isValid } } = useForm<FormFields>({
+    const { register, handleSubmit, formState: {isValid } } = useForm<FormFields>({
         resolver: zodResolver(schema),
         mode: 'onChange'
     });

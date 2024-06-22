@@ -5,7 +5,7 @@ const HomeContent = () => {
     return(
         <div className="container-homecontent">
             <div>
-              <form>
+              <form className="home-content-form">
                 <div>
                  <img src="./public/profile.img"></img>
                  <input type="text" placeholder="What's happening" className="input-happening" />
