@@ -283,3 +283,7 @@ form img, .profile-img{
   background-color: red;
   z-index:10;
 }
+.clickedPost-parent{
+  display: flex;
+  flex-direction: column;
+}
