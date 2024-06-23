@@ -22,14 +22,13 @@ const postsSlice = createSlice({
     if(post){
       console.log('radi')
     }
-    console.log('sasa', post)
    },
    getSinglePost(state,action){
     state.singlePost = action.payload;
-    console.log('[[[[[[[[[[[',state.singlePost)
    },
    getComments(state, action) {
     state.comments = action.payload
+    console.log('comments', state.comments)
    }
    
   },

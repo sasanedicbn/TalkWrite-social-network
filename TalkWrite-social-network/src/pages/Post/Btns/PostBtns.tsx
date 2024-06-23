@@ -12,7 +12,7 @@ const PostBtns = ({ liked, likes, comments, post_id }) => {
 
     const showPostHandler = async (id) => {
         setActiveId(id);
-       await  CommentsApi(id)
+       await  CommentsApi(id,dispatch)
        await SinglePostApi(id,dispatch);
      
     };
