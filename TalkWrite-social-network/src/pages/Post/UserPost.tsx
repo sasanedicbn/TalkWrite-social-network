@@ -7,7 +7,6 @@ const UserPost = () => {
     const postsData = useSelector(state => state.posts.posts);
     const { posts } = postsData;
     
-    console.log(posts, 'jebemtisve')
 
     return (
         <div className='userPost-container'>

@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   posts:[],
   singlePost:{},
+  comments:[]
 };
 
 const postsSlice = createSlice({
@@ -26,11 +27,14 @@ const postsSlice = createSlice({
    getSinglePost(state,action){
     state.singlePost = action.payload;
     console.log('[[[[[[[[[[[',state.singlePost)
+   },
+   getComments(state, action) {
+    state.comments = action.payload
    }
    
   },
 });
 
-export const { getPosts, toggleLike, getSinglePost} = postsSlice.actions;
+export const { getPosts, toggleLike, getSinglePost, getComments} = postsSlice.actions;
 
 export default postsSlice.reducer;

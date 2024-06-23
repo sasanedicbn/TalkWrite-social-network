@@ -1,7 +1,6 @@
 import Date from "./Date";
 
 const HeaderPosts = ({ post }) => {
-    console.log(post, '----------------')
     return (
         <div>
             <div>

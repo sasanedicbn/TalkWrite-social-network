@@ -1,7 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useState } from 'react';
 
 const schema = z.object({
     comment: z.string().min(1, "Comment cannot be empty")
