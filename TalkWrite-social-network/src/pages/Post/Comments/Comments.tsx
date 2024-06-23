@@ -15,10 +15,11 @@ const Comments = () => {
     console.log('srbija', usersComments);
     return (
         <div className="comments-container">
+             <h3>{usersComments.length + ' comments'}</h3>
             {usersComments.map((user, index) => (
                 <>
                  <HeaderPosts key={index} post={user} />
-                 <p className="comments-text">{user.text}</p>
+                  <p className="comments-text">{user.text}</p>
                 </>
             ))}
         </div>
