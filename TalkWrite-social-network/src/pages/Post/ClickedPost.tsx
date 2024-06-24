@@ -7,6 +7,7 @@ import Comments from "./Comments/Comments";
 
 const ClickedPost = () => {
     const post = useSelector(state => state.posts.singlePost.post);
+    console.log('ssssssse21312',post)
     
     if (!post) {
         return (
@@ -22,7 +23,7 @@ const ClickedPost = () => {
                 <div className="clickedPost-parent">
                   <HeaderPosts post={post} />
                   <ContentPost image={post.image} text={post.text} />
-                  <Comment/>
+                  <Comment postId={post.post_id} />
                   <PostBtns liked={post.liked} likes={post.likes} comments={post.comment} post_id={post.post_id} />
                   <Comments/>
                 </div>
