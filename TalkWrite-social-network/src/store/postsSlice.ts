@@ -17,7 +17,7 @@ const postsSlice = createSlice({
    },
    toggleLike(state, action){
     const postId = action.payload
-    console.log('ovdeeeeee',postId)
+
     const post = state.posts.posts.find(state => state.post_id === postId)
     if(post){
       console.log('radi')
@@ -29,6 +29,9 @@ const postsSlice = createSlice({
    getComments(state, action) {
     state.comments = action.payload
     console.log('comments', state.comments)
+   },
+   setComment(state,action){
+  
    }
    
   },
