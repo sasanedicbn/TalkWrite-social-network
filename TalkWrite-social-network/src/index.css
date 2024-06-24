@@ -288,13 +288,14 @@ form img, .profile-img{
   position: fixed; 
   left: 52%;
   transform: translateX(-50%);
-  top: 20px;
-  bottom: 20px;
-  width: 600px;
+  top: 10px;
+  bottom: 10px;
+  width: 580px;
   background-color: white;
   z-index: 10;
   max-width: 100%;
-  padding: 1rem;
+  padding: 2rem;
+  
   overflow-y:scroll;
 }
 
