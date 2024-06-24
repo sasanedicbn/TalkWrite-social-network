@@ -1,7 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useSelector } from 'react-redux';
 
 const schema = z.object({
     comment: z.string().min(1, "Comment cannot be empty")
@@ -14,9 +13,11 @@ const Comment = () => {
         resolver: zodResolver(schema),
         mode: 'onChange'
     });
-  const user = useSelector(state => state.user)
+//   const user = useSelector(state => state.user)
     const onSubmit: SubmitHandler<FormFields> = (data) => {
-       console.log('setovanje',user)
+       const newCommentText = data.comment;
+        const commentObject = { text: newCommentText };
+        console.log('setovanje', commentObject);
     };
 
     const commentValue = watch('comment');
