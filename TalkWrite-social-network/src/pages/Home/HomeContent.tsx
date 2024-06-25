@@ -13,19 +13,18 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 const HomeContent = () => {
-    const { register, handleSubmit, watch, formState: { isValid } } = useForm<FormFields>({
+    const { register, handleSubmit, formState: { isValid } } = useForm<FormFields>({
         resolver: zodResolver(schema),
         mode: 'onChange'
     });
-    const dispatch = useDispatch();
 
-    const onSubmit: SubmitHandler<FormFields> = (data) => {
+     const onSubmit: SubmitHandler<FormFields> = async (data) => {
         const newPostContent = data.postContent;
-        AddPostApi(newPostContent, dispatch);
+        await AddPostApi(newPostContent);
         console.log(newPostContent);
     };
 
-    const postValue = watch('postContent');
+    
 
     return (
         <div className="container-homecontent">

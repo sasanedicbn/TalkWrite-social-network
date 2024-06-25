@@ -15,13 +15,13 @@ const Comment = ({ postId }) => {
     resolver: zodResolver(schema),
     mode: 'onChange'
   });
-  const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     const newCommentText = data.comment;
-   const datas = await AddCommentApi(postId, newCommentText);
-
-   console.log('2222',datas)
+   const {comment} = await AddCommentApi(postId, newCommentText);z
+//    if ako je succes onda dodaj komentar i pokazi toast da je succces ako nije mzdd prikazi toast da nije 
+   
+   console.log('2222',comment)
   };
 
   const commentValue = watch('comment');
