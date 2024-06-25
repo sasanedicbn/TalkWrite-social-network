@@ -366,3 +366,7 @@ form img, .profile-img{
   color: rgb(104, 103, 103);
   margin-bottom: 1rem;
 }
+.container-comments-text{
+  display: flex;
+  justify-content: space-between;
+}

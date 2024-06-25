@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import HeaderPosts from "../HeaderPosts";
+import { FaTrash } from "react-icons/fa";
 
 const Comments = () => {
     const usersComments = useSelector(state => state.posts.comments.comments);
@@ -19,7 +20,10 @@ const Comments = () => {
             {usersComments.map((user, index) => (
                 <>
                  <HeaderPosts key={index} post={user} />
-                  <p className="comments-text">{user.text}</p>
+                 <div className="container-comments-text">
+                    <p className="comments-text">{user.text}</p>
+                    <span><FaTrash /></span>
+                  </div>
                 </>
             ))}
         </div>

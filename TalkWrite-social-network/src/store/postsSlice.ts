@@ -35,6 +35,7 @@ const postsSlice = createSlice({
       if (post) {
         post.comments.push(comment);
       }
+      
     }
   },
 });
