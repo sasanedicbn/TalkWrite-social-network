@@ -3,6 +3,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useDispatch } from 'react-redux';
 import { AddCommentApi } from '../../../api/AddCommentApi';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const schema = z.object({
   comment: z.string().min(1, "Comment cannot be empty")
@@ -17,11 +19,17 @@ const Comment = ({ postId }) => {
   });
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
-    const newCommentText = data.comment;
-   const {comment} = await AddCommentApi(postId, newCommentText);z
-//    if ako je succes onda dodaj komentar i pokazi toast da je succces ako nije mzdd prikazi toast da nije 
-   
-   console.log('2222',comment)
+    try {
+      const newCommentText = data.comment;
+      const { comment } = await AddCommentApi(postId, newCommentText);
+      // Ako je komentar uspešno dodat
+      if (comment) {
+        toast.success("Comment added successfully!");
+      }
+    } catch (error) {
+      // Prikazivanje obaveštenja u slučaju greške
+      toast.error("Failed to add comment. Please try again.");
+    }
   };
 
   const commentValue = watch('comment');
@@ -46,6 +54,7 @@ const Comment = ({ postId }) => {
           </svg>
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };
