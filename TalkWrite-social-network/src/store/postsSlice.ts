@@ -12,20 +12,21 @@ const postsSlice = createSlice({
   reducers: {
     getPosts(state, action) {
       state.posts = action.payload;
-      console.log('ovaj', state.posts);
+      console.log('posts', state.posts);
     },
-    addPost(state,action) {
-      const addPost = action.payload
-      console.log('addpostfromSLICE', addPost)
-      // if(addPost){
-      //   state.post.push(addPost)}
+    addPost(state, action) {
+      const addPost = action.payload;
+      console.log('addpostfromSLICE', addPost);
+      if (addPost) {
+        state.posts.push(addPost);
+      }
     },
     toggleLike(state, action) {
       const postId = action.payload;
-      console.log('ovdeeeeee', postId);
+      console.log('postId', postId);
       const post = state.posts.find(post => post.post_id === postId);
       if (post) {
-        console.log('radi');
+        console.log('toggleLike working');
       }
     },
     getSinglePost(state, action) {
@@ -41,11 +42,10 @@ const postsSlice = createSlice({
       if (post) {
         post.comments.push(comment);
       }
-      
     }
   },
 });
 
-export const { getPosts, toggleLike, getSinglePost, getComments, setComment } = postsSlice.actions;
+export const { getPosts, toggleLike, getSinglePost, getComments, setComment, addPost } = postsSlice.actions;
 
 export default postsSlice.reducer;

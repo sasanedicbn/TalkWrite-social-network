@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import HeaderPosts from "../HeaderPosts";
 import { FaTrash } from "react-icons/fa";
+import { useEffect } from "react";
 
 const Comments = () => {
     const usersComments = useSelector(state => state.posts.comments.comments);
@@ -12,8 +13,11 @@ const Comments = () => {
             </div>
         );
     }
+    useEffect((() => {
+     console.log('komentari',usersComments)
+    }), [usersComments])
 
-    console.log('srbija', usersComments);
+    // console.log('srbija', usersComments);
     return (
         <div className="comments-container">
              <h3>{usersComments.length + 'comments'}</h3>

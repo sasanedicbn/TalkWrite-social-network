@@ -1,6 +1,6 @@
 import {  setComment } from "../store/postsSlice";
 
-export const AddCommentApi = async (id, dispatch, newCommentText) => {
+export const AddCommentApi = async (id, newCommentText) => {
   const baseUrl = 'https://api.hr.constel.co/api/v1';
   const jwt = localStorage.getItem('jwt');
 
@@ -22,7 +22,8 @@ export const AddCommentApi = async (id, dispatch, newCommentText) => {
 
     const data = await response.json();
     console.log('RADUUUUU', data);
-    dispatch(setComment({ postId: id, comment: data }));
+    // dispatch(setComment({ postId: id, comment: data }));
+    return data;
   } catch (error) {
     console.error('Error:', error);
   }

@@ -17,9 +17,11 @@ const Comment = ({ postId }) => {
   });
   const dispatch = useDispatch();
 
-  const onSubmit: SubmitHandler<FormFields> = (data) => {
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
     const newCommentText = data.comment;
-    AddCommentApi(postId, dispatch, newCommentText);
+   const datas = await AddCommentApi(postId, newCommentText);
+
+   console.log('2222',datas)
   };
 
   const commentValue = watch('comment');

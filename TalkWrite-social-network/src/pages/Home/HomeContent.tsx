@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useDispatch } from 'react-redux';
+import { AddPostApi } from "../../api/AddPostApi";
 
 const schema = z.object({
   postContent: z.string().min(1, "Post content cannot be empty")
@@ -20,6 +21,7 @@ const HomeContent = () => {
 
     const onSubmit: SubmitHandler<FormFields> = (data) => {
         const newPostContent = data.postContent;
+        AddPostApi(newPostContent, dispatch);
         console.log(newPostContent);
     };
 
@@ -50,10 +52,9 @@ const HomeContent = () => {
                     </div>
                 </form>
             </div>
-            <SinglePost/>
+            <SinglePost />
         </div>
     );
 };
 
 export default HomeContent;
-
