@@ -14,6 +14,12 @@ const postsSlice = createSlice({
       state.posts = action.payload;
       console.log('ovaj', state.posts);
     },
+    addPost(state,action) {
+      const addPost = action.payload
+      console.log('addpostfromSLICE', addPost)
+      // if(addPost){
+      //   state.post.push(addPost)}
+    },
     toggleLike(state, action) {
       const postId = action.payload;
       console.log('ovdeeeeee', postId);
