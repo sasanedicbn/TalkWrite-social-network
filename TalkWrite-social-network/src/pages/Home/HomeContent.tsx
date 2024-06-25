@@ -20,11 +20,12 @@ const HomeContent = () => {
 
     const onSubmit: SubmitHandler<FormFields> = (data) => {
         const newPostContent = data.postContent;
+        console.log(newPostContent);
     };
 
     const postValue = watch('postContent');
 
-    return(
+    return (
         <div className="container-homecontent">
             <div>
                 <form className="home-content-form" onSubmit={handleSubmit(onSubmit)}>
@@ -39,7 +40,11 @@ const HomeContent = () => {
                     </div>
                     <div>
                         <FaMicrophone size={50} color="blue" />
-                        <button type="submit" className={`new-post-button ${postValue ? 'enabled' : ''}`} disabled={!isValid}>
+                        <button 
+                            type="submit" 
+                            className={`new-post-button ${isValid ? 'enabled' : 'valid'}`} 
+                            disabled={!isValid}
+                        >
                             New Post
                         </button>
                     </div>
@@ -51,3 +56,4 @@ const HomeContent = () => {
 };
 
 export default HomeContent;
+

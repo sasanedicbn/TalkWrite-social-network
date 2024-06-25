@@ -121,23 +121,32 @@ form img, .profile-img{
 .container-homecontent div .home-content-form div:nth-child(2) svg{
  width: 32px;
  height: 32px;
-} 
-.container-homecontent div .home-content-form div:nth-child(2) button{
-  background-color: rgb(163, 160, 160);
+} .container-homecontent div .home-content-form div:nth-child(2) button {
+  background-color: rgb(163, 160, 160); /* Default disabled color */
   border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
-  text-decoration: none;;
+  text-decoration: none;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
   transition: background-color 0.3s;
-} 
-.container-homecontent div .home-content-form div:nth-child(2) button:hover{
-  background-color:rgb(98, 98, 255);
 }
+
+.container-homecontent div .home-content-form div:nth-child(2) button.enabled {
+  background-color: #007bff; 
+}
+
+.container-homecontent div .home-content-form div:nth-child(2) button.valid {
+  background-color: rgb(163, 160, 160); 
+}
+
+.container-homecontent div .home-content-form div:nth-child(2) button:hover.enabled {
+  background-color: rgb(98, 98, 255); 
+}
+
 .input-happening{
   height: 36px;
   font-size: 16px;
@@ -349,6 +358,11 @@ form img, .profile-img{
 .comment-button.enabled {
   background-color: #007bff;
   color: white;
+}
+
+
+.new-post-button {
+  transition: background-color 0.3s ease;
 }
 
 .comment-button svg {
