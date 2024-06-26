@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useDispatch } from 'react-redux';
 import { AddPostApi } from "../../api/AddPostApi";
+import { addPost } from "../../store/postsSlice";
 
 const schema = z.object({
   postContent: z.string().min(1, "Post content cannot be empty")
@@ -17,11 +18,19 @@ const HomeContent = () => {
         resolver: zodResolver(schema),
         mode: 'onChange'
     });
+    const dispatch = useDispatch()
 
-     const onSubmit: SubmitHandler<FormFields> = async (data) => {
-        const newPostContent = data.postContent;
-        await AddPostApi(newPostContent);
-        console.log(newPostContent);
+    const onSubmit: SubmitHandler<FormFields> = async (data) => {
+        const content = data.postContent;
+        try {
+            const newPost = await AddPostApi(content);
+            if (newPost) {
+                dispatch(addPost(newPost));
+            }
+        } catch (error) {
+            console.error('Greška prilikom dodavanja posta:', error);
+        }
+        console.log(content);
     };
 
     

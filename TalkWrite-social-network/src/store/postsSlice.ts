@@ -17,9 +17,9 @@ const postsSlice = createSlice({
     addPost(state, action) {
       const addPost = action.payload;
       console.log('addpostfromSLICE', addPost);
-      if (addPost) {
-        state.posts.push(addPost);
-      }
+      if(addPost){
+        state.posts.posts.push(addPost)}
+      
     },
     toggleLike(state, action) {
       const postId = action.payload;
