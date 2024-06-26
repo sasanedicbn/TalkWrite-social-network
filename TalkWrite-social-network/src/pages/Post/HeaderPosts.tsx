@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
 import Date from "./Date";
 
 const HeaderPosts = ({ post }) => {
+    const posts = useSelector(state => state.posts.posts.posts)
+    console.log('-0913123----', posts)
     return (
         <div>
             <div>

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 const Comments = () => {
     const usersComments = useSelector(state => state.posts.comments.comments);
+  
     
     if (!usersComments) {
         return (
@@ -26,7 +27,7 @@ const Comments = () => {
                  <HeaderPosts key={index} post={user} />
                  <div className="container-comments-text">
                     <p className="comments-text">{user.text}</p>
-                    <span><FaTrash /></span>
+                   { <span><FaTrash /></span>}
                   </div>
                 </>
             ))}
