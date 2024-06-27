@@ -45,11 +45,12 @@ const postsSlice = createSlice({
     },
     deletePost(state, action) {
       const postId = action.payload;
-      state.posts = state.posts.filter(post => post.post_id !== postId);
+      console.log('deletepost',state.posts)
+      state.posts = state.posts.posts.filter(post => post.post_id !== postId);
     }
   },
 });
 
-export const { getPosts, toggleLike, getSinglePost, getComments, setComment, addPost } = postsSlice.actions;
+export const { getPosts, toggleLike, getSinglePost, getComments, setComment, addPost,deletePost } = postsSlice.actions;
 
 export default postsSlice.reducer;

@@ -1,4 +1,3 @@
-import {  setComment } from "../store/postsSlice";
 
 export const AddCommentApi = async (id, newCommentText) => {
   const baseUrl = 'https://api.hr.constel.co/api/v1';
@@ -23,6 +22,7 @@ export const AddCommentApi = async (id, newCommentText) => {
     const data = await response.json();
     console.log('RADUUUUU', data);
     // dispatch(setComment({ postId: id, comment: data }));
+    
     return data;
   } catch (error) {
     console.error('Error:', error);
