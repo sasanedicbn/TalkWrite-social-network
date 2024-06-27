@@ -1,6 +1,6 @@
 
 
-export default async function deletePost(postId: string) {
+export default async function deletePostApi(postId: string) {
 const baseUrl = 'https://api.hr.constel.co/api/v1';
   try {
     const jwt = localStorage.getItem('jwt');

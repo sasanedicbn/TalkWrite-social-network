@@ -42,6 +42,10 @@ const postsSlice = createSlice({
       if (post) {
         post.comments.push(comment);
       }
+    },
+    deletePost(state, action) {
+      const postId = action.payload;
+      state.posts = state.posts.filter(post => post.post_id !== postId);
     }
   },
 });
