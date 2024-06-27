@@ -17,13 +17,13 @@ const ProtectedRoute = ({ children }) => {
         if (token) {
           const userData = await UserApi();
           const userPosts = await UserPosts();
-          console.log('proteceteduserdata', userData);
-          console.log('USRAZ POST', userPosts);
+          // console.log('proteceteduserdata', userData);
+          // console.log('USRAZ POST', userPosts);
           dispatch(setUser(userData));
           dispatch(getPosts(userPosts));
         }
       } catch (error) {
-        console.error('Greška prilikom preuzimanja podataka korisnika:', error);
+        console.error('error', error);
       } finally {
         setLoading(false);
       }

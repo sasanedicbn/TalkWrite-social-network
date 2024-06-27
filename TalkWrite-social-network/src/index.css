@@ -383,3 +383,21 @@ form img, .profile-img{
   display: flex;
   justify-content: space-between;
 }
+.date-container{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#date-delete{
+  display: flex;
+  align-items: center;
+  gap: .2rem;
+  font-size: 16px;
+  color: rgb(226, 31, 31);
+  cursor: pointer;
+}
+.date-delete svg{
+  width: 15px;
+  height: 15px;
+  
+}
