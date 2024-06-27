@@ -11,15 +11,13 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     getPosts(state, action) {
-      state.posts = action.payload.posts;
-      console.log('posts', state.posts);
+      state.posts = action.payload;
     },
     addPost(state, action) {
       const addPost = action.payload;
       console.log('addpostfromSLICE', addPost);
-      if (addPost) {
-        state.posts.push(addPost);
-      }
+      if(addPost){
+        state.posts.posts.push(addPost)}
     },
     toggleLike(state, action) {
       const postId = action.payload;
@@ -34,7 +32,6 @@ const postsSlice = createSlice({
     },
     getComments(state, action) {
       state.comments = action.payload;
-      console.log('comments', state.comments);
     },
     setComment(state, action) {
       const { postId, comment } = action.payload;
@@ -45,15 +42,15 @@ const postsSlice = createSlice({
     },
     deletePost(state, action) {
       const postId = action.payload;
-      state.posts = state.posts.filter(post => post.post_id !== postId);
+      state.posts = state.posts.posts.filter(post => post.post_id !== postId);
     },
     deleteComment(state, action) {
       const commentId = action.payload;
       state.comments = state.comments.filter(comment => comment.comment_id !== commentId);
-    }
+    },
   },
 });
 
-export const { getPosts, toggleLike, getSinglePost, getComments, setComment, addPost, deletePost, deleteComment } = postsSlice.actions;
+export const { getPosts, toggleLike, getSinglePost, getComments, setComment, addPost,deletePost, deleteComment } = postsSlice.actions;
 
 export default postsSlice.reducer;

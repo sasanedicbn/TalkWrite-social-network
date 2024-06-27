@@ -3,14 +3,16 @@ import { formatedDate } from "../../constants/constants";
 import { useSelector, useDispatch } from "react-redux";
 import deletePostApi from "../../api/DeletePostApi";
 import deleteCommentApi from "../../api/DeleteCommentApi";
-import { deletePost, getPosts, deleteComment, getComments } from "../../store/postsSlice";
+import { deletePost, getPosts,  getComments, deleteComment } from "../../store/postsSlice";
 import { UserPosts } from "../../api/UserPosts";
-import { PostComments } from "../../api/PostComments"; // Pretpostavimo da imate API za dobijanje komentara
+import { CommentsApi } from "../../api/CommentsApi";
 
 const Date = ({ post }) => {
   const { user } = post;
+  console.log('IZ DATEAAAA', user)
   const userName = useSelector(state => state.user.setUser.username);
   const comments = useSelector(state => state.posts.comments);
+  console.log('IZ DATEA 2',comments)
   const dispatch = useDispatch();
 
   const handleDeletePost = async () => {
@@ -31,7 +33,7 @@ const Date = ({ post }) => {
   const handleDeleteComment = async (commentId) => {
     try {
       const status = await deleteCommentApi(commentId);
-      const comments = await PostComments(post.post_id); // Pretpostavimo da imate API za dobijanje komentara
+      const comments = await CommentsApi(post.post_id); 
       if (status === 200) {
         dispatch(deleteComment(commentId));
         dispatch(getComments(comments));
