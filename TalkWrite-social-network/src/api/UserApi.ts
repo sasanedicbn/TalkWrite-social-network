@@ -12,7 +12,6 @@ export const UserApi = async () => {
         });
         const data = await response.json()
         const {account} = data
-        console.log('DATCINA', account)
         return account
     } catch (error) {
         console.error('Login error:', error);

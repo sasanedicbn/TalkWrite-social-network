@@ -12,7 +12,6 @@ const postsSlice = createSlice({
   reducers: {
     getPosts(state, action) {
       state.posts = action.payload;
-      console.log('posts', state.posts);
     },
     addPost(state, action) {
       const addPost = action.payload;
@@ -34,7 +33,6 @@ const postsSlice = createSlice({
     },
     getComments(state, action) {
       state.comments = action.payload;
-      console.log('comments', state.comments);
     },
     setComment(state, action) {
       const { postId, comment } = action.payload;
@@ -45,7 +43,6 @@ const postsSlice = createSlice({
     },
     deletePost(state, action) {
       const postId = action.payload;
-      console.log('deletepost',state.posts)
       state.posts = state.posts.posts.filter(post => post.post_id !== postId);
     }
   },

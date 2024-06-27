@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import LikeBtn from './LikeBtn';
 import CommentBtn from './CommentBtn';
 import { CommentsApi } from '../../../api/CommentsApi';
+import { getComments } from '../../../store/postsSlice';
 
 const PostBtns = ({ liked, likes, comments, post_id }) => {
     const [activeId, setActiveId] = useState(null);
@@ -12,7 +13,9 @@ const PostBtns = ({ liked, likes, comments, post_id }) => {
 
     const showPostHandler = async (id) => {
         setActiveId(id);
-       await  CommentsApi(id,dispatch)
+      const comments =  await  CommentsApi(id)
+      console.log('000-0-0-0-0-0-0-0-',comments)
+      dispatch(getComments(comments))
        await SinglePostApi(id,dispatch);
      
     };

@@ -9,7 +9,11 @@ import { UserPosts } from "../../api/UserPosts";
 const Date = ({ post }) => {
   const { user } = post;
   const userName = useSelector(state => state.user.setUser.username);
+  const comments = useSelector(state => state.posts.comments)
+  const [commentsUserName] = comments.map((comment) => comment.username )
+  console.log('zabrisanjeusernam',commentsUserName)
   const dispatch = useDispatch();
+  
 
   const handleDeletePost = async () => {
     try {
@@ -25,11 +29,18 @@ const Date = ({ post }) => {
       console.error('Error deleting post:', error);
     }
   };
+  const handleDeleteComment = async () => {
+    console.log('comment brise ovo')
+  }
 
   return (
     <div className="date-container">
       <p className='userPost-date'><FaRegCalendarAlt size={24} />{formatedDate(post.created_at)}</p>
-      {user.username === userName ? <p id="date-delete" onClick={handleDeletePost}><FaTrash /> Delete</p> : ''}
+
+      {user.username  === userName ? <p id="date-delete" onClick={handleDeletePost}><FaTrash /> Delete</p> : 
+       commentsUserName === userName ? <p id="date-delete" onClick={handleDeleteComment}><FaTrash /> Delete</p> : ''
+      }
+  
     </div>
   );
 };

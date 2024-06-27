@@ -1,6 +1,5 @@
-import { getComments } from "../store/postsSlice";
 
-export const CommentsApi = async (id, dispatch) => {
+export const CommentsApi = async (id) => {
     const baseUrl = 'https://api.hr.constel.co/api/v1';
     const jwt = localStorage.getItem('jwt')
 
@@ -17,7 +16,11 @@ export const CommentsApi = async (id, dispatch) => {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         const data = await response.json()
-        dispatch(getComments(data))
+        console.log('cccccccccccc',data)
+        const {comments} = data
+        console.log('IZ API Comment', comments)
+        return comments
+        
        
     } catch (error) {
         console.error('Login error:', error);
