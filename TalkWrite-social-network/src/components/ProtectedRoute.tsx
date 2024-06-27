@@ -2,21 +2,42 @@ import { Navigate } from 'react-router-dom';
 import { UserApi } from '../api/UserApi';
 import { UserPosts } from '../api/UserPosts';
 import { useDispatch } from 'react-redux';
+import { setUser } from '../store/userSlice';
+import { useEffect, useState } from 'react';
 
 const ProtectedRoute = ({ children }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const token = localStorage.getItem('jwt');
-  
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        if (token) {
+          const userData = await UserApi();
+          console.log('proteceteduserdata', userData)
+          dispatch(setUser(userData));
+          UserPosts(); 
+        }
+      } catch (error) {
+        console.error('Greška prilikom preuzimanja podataka korisnika:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, [dispatch, token]);
+
   if (!token) {
     return <Navigate to="/" replace />;
-  } else{
-    UserApi()
-    UserPosts()
-    
   }
-//ako nema tokena i juzera userApi()
+
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
+
   return children;
 };
 
 export default ProtectedRoute;
-// /posts
