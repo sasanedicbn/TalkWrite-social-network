@@ -1,11 +1,9 @@
-import { useDispatch } from "react-redux";
-import { getPosts } from "../store/postsSlice";
+
 
 // posts
  export const UserPosts = async () => {
  const baseUrl = 'https://api.hr.constel.co/api/v1';
  const jwt = localStorage.getItem('jwt')
- const dispatch = useDispatch()
 
  try{
   const response = await fetch(`${baseUrl}/posts`, {
@@ -16,8 +14,8 @@ import { getPosts } from "../store/postsSlice";
     },
  })
  const data = await response.json()
- dispatch(getPosts(data))
- console.log(data)
+// console.log(data)
+ return data
  
  }catch(error){
   console.log(error)

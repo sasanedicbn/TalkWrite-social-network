@@ -8,9 +8,9 @@ const HeaderPosts = ({ post }) => {
     // console.log('-0913123----', posts)
  
     const user = useSelector(state => state.user.setUser)
+
     if(user){
-        console.log('USERRRR', user)
-    }
+        console.log('USERRRR', user)}
 
     return (
         <div>
