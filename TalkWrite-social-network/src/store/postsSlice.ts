@@ -42,6 +42,7 @@ const postsSlice = createSlice({
     },
     deletePost(state, action) {
       const postId = action.payload;
+
       state.posts = state.posts.posts.filter(post => post.post_id !== postId);
     },
     deleteComment(state, action) {

@@ -23,6 +23,7 @@ export const SinglePostApi = async (id, dispatch) => {
 
         const data = await response.json();
         console.log('datafromAPI', data);
+        
         dispatch(getSinglePost(data));
     } catch (error) {
         console.log('Fetch error: ', error);

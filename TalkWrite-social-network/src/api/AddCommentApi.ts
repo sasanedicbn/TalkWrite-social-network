@@ -20,10 +20,10 @@ export const AddCommentApi = async (id, newCommentText) => {
     }
 
     const data = await response.json();
-    console.log('RADUUUUU', data);
+    console.log('RADUUUUU', data.comment);
     // dispatch(setComment({ postId: id, comment: data }));
     
-    return data;
+    return data.comment;
   } catch (error) {
     console.error('Error:', error);
   }

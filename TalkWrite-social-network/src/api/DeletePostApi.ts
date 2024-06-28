@@ -4,6 +4,7 @@ export default async function deletePostApi(postId: string) {
 const baseUrl = 'https://api.hr.constel.co/api/v1';
   try {
     const jwt = localStorage.getItem('jwt');
+    console.log('trebalo bi da je id za delete',postId)
     const response = await fetch(`${baseUrl}/posts/${postId}`, {
       method: 'DELETE',
       headers: {
@@ -18,6 +19,7 @@ const baseUrl = 'https://api.hr.constel.co/api/v1';
 
     await response.json();
     const { status } = response;
+    console.log('status iz delete', status)
 
     return status;
   } catch (error) {

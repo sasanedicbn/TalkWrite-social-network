@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { AddCommentApi } from '../../../api/AddCommentApi';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { CommentsApi } from '../../../api/CommentsApi';
+import { getComments, setComment } from '../../../store/postsSlice';
 
 const schema = z.object({
   comment: z.string().min(1, "Comment cannot be empty")
@@ -17,17 +19,23 @@ const Comment = ({ postId }) => {
     resolver: zodResolver(schema),
     mode: 'onChange'
   });
+  const dispatch = useDispatch()
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
+     
       const newCommentText = data.comment;
       const { comment } = await AddCommentApi(postId, newCommentText);
+
+      // const [comments] = await CommentsApi(postId)
+      // console.log('AAAAAAAAAA', comments)
       // Ako je komentar uspešno dodat
       if (comment) {
+        dispatch(setComment({postId,comment}))
+        // dispatch(getComments(comments))
         toast.success("Comment added successfully!");
       }
     } catch (error) {
-      // Prikazivanje obaveštenja u slučaju greške
       toast.error("Failed to add comment. Please try again.");
     }
   };
