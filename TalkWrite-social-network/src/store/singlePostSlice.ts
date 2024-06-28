@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  currentSlice:null,
+  currentPost:{},
 };
 
 const singlePostSlice = createSlice({
@@ -10,7 +10,8 @@ const singlePostSlice = createSlice({
   initialState,
   reducers: {
    getSinglePost(state, action){
-     state.currentSlice = action.payload;
+    console.log('state.currentPost',state.currentPost)
+     state.currentPost = action.payload;
    },
   },
 });

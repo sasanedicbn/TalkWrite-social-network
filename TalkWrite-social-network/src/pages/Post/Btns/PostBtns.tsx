@@ -6,18 +6,21 @@ import LikeBtn from './LikeBtn';
 import CommentBtn from './CommentBtn';
 import { CommentsApi } from '../../../api/CommentsApi';
 import { getComments } from '../../../store/postsSlice';
+import { getSinglePost } from '../../../store/singlePostSlice';
 
 const PostBtns = ({ liked, likes, comments, post_id }) => {
     const [activeId, setActiveId] = useState(null);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const showPostHandler = async (id) => {
         setActiveId(id);
       const comments =  await  CommentsApi(id)
       console.log('000-0-0-0-0-0-0-0-',comments)
       dispatch(getComments(comments))
-       await SinglePostApi(id,dispatch);
-     
+       const singlePost = await SinglePostApi(id);
+       console.log('singlePost iz postbtns', singlePost)
+       dispatch(getSinglePost(singlePost))
+    
     };
 
     return (

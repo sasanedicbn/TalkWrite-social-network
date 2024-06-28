@@ -1,6 +1,6 @@
 import { getSinglePost } from "../store/postsSlice";
 
-export const SinglePostApi = async (id, dispatch) => {
+export const SinglePostApi = async (id) => {
     const baseUrl = 'https://api.hr.constel.co/api/v1';
     const jwt = localStorage.getItem('jwt');
 
@@ -22,9 +22,10 @@ export const SinglePostApi = async (id, dispatch) => {
         }
 
         const data = await response.json();
-        console.log('datafromAPI', data);
-        
-        dispatch(getSinglePost(data));
+       
+        const {post} = data
+        console.log('datafromAPI', post);
+        return post
     } catch (error) {
         console.log('Fetch error: ', error);
         throw error;

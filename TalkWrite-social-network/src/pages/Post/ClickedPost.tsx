@@ -6,7 +6,7 @@ import Comments from "./Comments/Comments";
 import Comment from "./Comments/Comment";
 
 const ClickedPost = () => {
-    const post = useSelector(state => state.posts.singlePost.post);
+    const post = useSelector(state => state.post.currentPost);
     console.log('ssssssse21312',post)
     
     if (!post) {
