@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import HeaderPosts from "./HeaderPosts";
 import ContentPost from "./ContentPost";
-import Comment from "./Comments/Comment";
 import PostBtns from "./Btns/PostBtns";
 import Comments from "./Comments/Comments";
+import Comment from "./Comments/Comment";
 
 const ClickedPost = () => {
     const post = useSelector(state => state.posts.singlePost.post);

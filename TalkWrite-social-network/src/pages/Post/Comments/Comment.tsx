@@ -26,10 +26,8 @@ const Comment = ({ postId }) => {
      
       const newCommentText = data.comment;
       const { comment } = await AddCommentApi(postId, newCommentText);
-
       // const [comments] = await CommentsApi(postId)
-      // console.log('AAAAAAAAAA', comments)
-      // Ako je komentar uspešno dodat
+
       if (comment) {
         dispatch(setComment({postId,comment}))
         // dispatch(getComments(comments))
