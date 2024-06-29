@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   posts: [],
-  comments: []
 };
 
 const postsSlice = createSlice({
@@ -26,28 +25,16 @@ const postsSlice = createSlice({
         console.log('toggleLike working');
       }
     },
-    getComments(state, action) {
-      state.comments = action.payload;
-    },
-    setComment(state, action) {
-      const { postId, comment } = action.payload;
-      const post = state.posts.find(post => post.post_id === postId);
-      if (post) {
-        post.comments.push(comment);
-      }
-    },
+  
     deletePost(state, action) {
       const postId = action.payload;
 
       state.posts = state.posts.posts.filter(post => post.post_id !== postId);
     },
-    deleteComment(state, action) {
-      const commentId = action.payload;
-      state.comments = state.comments.filter(comment => comment.comment_id !== commentId);
-    },
+   
   },
 });
 
-export const { getPosts, toggleLike, getComments, setComment, addPost,deletePost, deleteComment } = postsSlice.actions;
+export const { getPosts, toggleLike,addPost,deletePost, } = postsSlice.actions;
 
 export default postsSlice.reducer;

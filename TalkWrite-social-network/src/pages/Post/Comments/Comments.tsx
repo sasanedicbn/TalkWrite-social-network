@@ -4,7 +4,7 @@ import { FaTrash } from "react-icons/fa";
 import { useEffect } from "react";
 
 const Comments = () => {
-    const usersComments = useSelector(state => state.posts.comments);
+    const usersComments = useSelector(state => state.post.comments);
     console.log('COMMENTS', usersComments)
   
     

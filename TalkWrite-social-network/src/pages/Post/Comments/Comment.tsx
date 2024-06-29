@@ -5,8 +5,6 @@ import { useDispatch } from 'react-redux';
 import { AddCommentApi } from '../../../api/AddCommentApi';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { CommentsApi } from '../../../api/CommentsApi';
-import { getComments, setComment } from '../../../store/postsSlice';
 
 const schema = z.object({
   comment: z.string().min(1, "Comment cannot be empty")

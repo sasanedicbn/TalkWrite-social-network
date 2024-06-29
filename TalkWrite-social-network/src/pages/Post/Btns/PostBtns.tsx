@@ -5,8 +5,7 @@ import { useDispatch } from 'react-redux';
 import LikeBtn from './LikeBtn';
 import CommentBtn from './CommentBtn';
 import { CommentsApi } from '../../../api/CommentsApi';
-import { getComments } from '../../../store/postsSlice';
-import { getSinglePost } from '../../../store/singlePostSlice';
+import { getComments, getSinglePost } from '../../../store/singlePostSlice';
 
 const PostBtns = ({ liked, likes, comments, post_id }) => {
     const [activeId, setActiveId] = useState(null);
