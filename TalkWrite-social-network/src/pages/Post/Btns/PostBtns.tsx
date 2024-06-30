@@ -15,7 +15,7 @@ const PostBtns = ({ liked, likes, comments, post_id }) => {
     const showPostHandler = async (id) => {
         setActiveId(id);
       const comments =  await  CommentsApi(id)
-      console.log('000-0-0-0-0-0-0-0-',comments)
+      console.log('000-0-0-0-0-KOMENTARI ZA TAJ POST',comments)
       dispatch(getComments(comments))
        const singlePost = await SinglePostApi(id);
        console.log('singlePost iz postbtns', singlePost)

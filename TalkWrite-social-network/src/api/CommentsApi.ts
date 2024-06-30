@@ -19,6 +19,7 @@ export const CommentsApi = async (id) => {
         console.log('cccccccccccc',data)
         const {comments} = data
         console.log('IZ API Comment', comments)
+
         return comments
         
        

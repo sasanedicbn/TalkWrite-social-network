@@ -1,41 +1,32 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  currentPost:{   comments: []},
-
+  currentPost: { comments: [] },
 };
 
 const singlePostSlice = createSlice({
   name: 'post',
   initialState,
   reducers: {
-   getSinglePost(state, action){
-    console.log('state.currentPost',state.currentPost)
-     state.currentPost = action.payload;
-   },
-   getComments(state, action) {
-    console.log(state.currentPost.comments, 'iz sinlgeposta su komentari')
-    state.currentPost.comments = action.payload;
-  },
-  setComment(state, action) {
-    const { postId, comment } = action.payload;
-    // const post = state.posts.find(post => post.post_id === postId);
-    // if (post) {
-    //   post.comments.push(comment);
-    // }
-    console.log(postId)
-    state.currentPost.push(comment)
-  },
-  deleteComment(state, action) {
-    const commentId = action.payload;
-    state.comments = state.comments.filter(comment => comment.comment_id !== commentId);
-  },
+    getSinglePost(state, action) {
+      console.log('Current Post Comments:', state.currentPost);
+      state.currentPost = action.payload;
+    },
+    getComments(state, action) {
+      const comments = action.payload;
+      console.log('Comments from Action Payload:', comments);
+      console.log('Current Post Comments Before Update:', state.currentPost.comments);
+      state.currentPost.comments = comments;
+      console.log('Current Post Comments After Update:', state.currentPost.comments);
+    },
+    setComment(state, action) {
+      const { comment } = action.payload;
+      console.log('New Comment:', comment);
+      state.currentPost.comments.push(comment);
+    },
   },
 });
 
-export const { getSinglePost, getComments,setComment, deleteComment } = singlePostSlice.actions;
+export const { getSinglePost, getComments, setComment } = singlePostSlice.actions;
 
 export default singlePostSlice.reducer;
-// trebam kreirati current singleslice koji je aktivan kada se otvori tab i tu za njeogve komentare da doadm ove komentare
-//sve to valjda treba tamo u btns nesto se zobe postBtns
