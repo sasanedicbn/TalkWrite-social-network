@@ -2,8 +2,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  currentPost:{},
-  comments: [],
+  currentPost:{   comments: []},
+
 };
 
 const singlePostSlice = createSlice({
@@ -15,14 +15,17 @@ const singlePostSlice = createSlice({
      state.currentPost = action.payload;
    },
    getComments(state, action) {
-    state.comments = action.payload;
+    console.log(state.currentPost.comments, 'iz sinlgeposta su komentari')
+    state.currentPost.comments = action.payload;
   },
   setComment(state, action) {
     const { postId, comment } = action.payload;
-    const post = state.posts.find(post => post.post_id === postId);
-    if (post) {
-      post.comments.push(comment);
-    }
+    // const post = state.posts.find(post => post.post_id === postId);
+    // if (post) {
+    //   post.comments.push(comment);
+    // }
+    console.log(postId)
+    state.currentPost.push(comment)
   },
   deleteComment(state, action) {
     const commentId = action.payload;
