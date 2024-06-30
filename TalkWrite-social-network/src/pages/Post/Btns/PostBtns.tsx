@@ -9,7 +9,6 @@ import { getComments, getSinglePost } from '../../../store/singlePostSlice';
 
 const PostBtns = ({ liked, likes, comments, post_id }) => {
     const [activeId, setActiveId] = useState(null);
-    // const [activeComments, setActiveComments] = useState({})
     const dispatch = useDispatch()
 
     const showPostHandler = async (id) => {
@@ -20,10 +19,9 @@ const PostBtns = ({ liked, likes, comments, post_id }) => {
        const singlePost = await SinglePostApi(id);
        console.log('singlePost iz postbtns', singlePost)
        dispatch(getSinglePost(singlePost))
-    //    setActiveComments(singlePost)
     
     };
-    // console.log('STEJTCINA', activeComments)
+   
 
     return (
         <div id="postsBtns-container">
