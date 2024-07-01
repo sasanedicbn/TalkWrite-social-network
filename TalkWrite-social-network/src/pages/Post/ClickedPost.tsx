@@ -9,11 +9,13 @@ import { useState } from "react";
 const ClickedPost = () => {
     const [activePost, setActivePost] = useState(true)
     const post = useSelector(state => state.post.currentPost);
-    
+
     const closeActivePost = () => {
         setActivePost(false)
     }
-
+   const openActivePost = () => {
+     setActivePost(true)
+   }
     if (!post) {
         return (
             <div className="clickedPost-overlay">
@@ -23,17 +25,17 @@ const ClickedPost = () => {
     }
 
     return (
-        <div className="clickedPost-overlay">
+        activePost && (<div className="clickedPost-overlay" onClick={closeActivePost}>
             <div className="clickedPost-container">
                 <div className="clickedPost-parent">
                   <HeaderPosts post={post} />
                   <ContentPost image={post.image} text={post.text} />
                   <Comment postId={post.post_id} />
-                  <PostBtns liked={post.liked} likes={post.likes} comments={post.comment} post_id={post.post_id} />
+                  <PostBtns  liked={post.liked} likes={post.likes} comments={post.comment} post_id={post.post_id} />
                   <Comments/>
                 </div>
             </div>
-        </div>
+        </div>)
     );
 };
 

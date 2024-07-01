@@ -7,7 +7,7 @@ import CommentBtn from './CommentBtn';
 import { CommentsApi } from '../../../api/CommentsApi';
 import { getComments, getSinglePost } from '../../../store/singlePostSlice';
 
-const PostBtns = ({ liked, likes, comments, post_id }) => {
+const PostBtns = ({ liked, likes, comments, post_id,  }) => {
     const [activeId, setActiveId] = useState(null);
     const dispatch = useDispatch()
 
