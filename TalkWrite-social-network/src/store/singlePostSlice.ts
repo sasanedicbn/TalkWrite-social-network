@@ -26,16 +26,18 @@ const singlePostSlice = createSlice({
     },
     setComment(state, action) {
       const { comment } = action.payload;
-      console.log('New Comment:', comment);
-    //   state.currentPost.comments.push(comment);
      state.currentPost = {
         ...state.currentPost,
         comments: [...state.currentPost.comments, comment],
       };
     },
+    deleteComment(state, action) {
+      const commentId = action.payload;
+      state.currentPost.comments = state.currentPost.comments.filter(comment => comment.comment_id !== commentId);
+    },
   },
 });
 
-export const { getSinglePost, getComments, setComment } = singlePostSlice.actions;
+export const { getSinglePost, getComments, setComment, deleteComment } = singlePostSlice.actions;
 
 export default singlePostSlice.reducer;
