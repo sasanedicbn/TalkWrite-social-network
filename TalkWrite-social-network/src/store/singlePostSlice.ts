@@ -9,14 +9,19 @@ const singlePostSlice = createSlice({
   initialState,
   reducers: {
     getSinglePost(state, action) {
-      console.log('Current Post Comments:', state.currentPost);
-      state.currentPost = action.payload;
+      console.log('Current Post:', state.currentPost);
+      state.currentPost = {
+        ...action.payload,
+        comments: state.currentPost.comments,
+      };
     },
     getComments(state, action) {
-      const comments = action.payload;
-      console.log('Comments from Action Payload:', comments);
+      console.log('Comments from Action Payload:', action.payload);
       console.log('Current Post Comments Before Update:', state.currentPost.comments);
-      state.currentPost.comments = comments;
+      state.currentPost = {
+        ...state.currentPost,
+        comments: action.payload,
+      };
       console.log('Current Post Comments After Update:', state.currentPost.comments);
     },
     setComment(state, action) {

@@ -1,7 +1,7 @@
 import Date from "./Date";
 
 const HeaderPosts = ({ post }) => {
-
+console.log('IZ HEADERA', post)
     return (
         <div>
             <div>
