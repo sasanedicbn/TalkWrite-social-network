@@ -25,7 +25,10 @@ const ClickedPost = () => {
     }
 
     return (
-        activePost && (<div className="clickedPost-overlay" onClick={closeActivePost}>
+        activePost && (
+        <>
+        <div className="clickedPost-overlay" onClick={closeActivePost}>
+            </div>
             <div className="clickedPost-container">
                 <div className="clickedPost-parent">
                   <HeaderPosts post={post} />
@@ -35,7 +38,8 @@ const ClickedPost = () => {
                   <Comments/>
                 </div>
             </div>
-        </div>)
+            </>
+         )
     );
 };
 
