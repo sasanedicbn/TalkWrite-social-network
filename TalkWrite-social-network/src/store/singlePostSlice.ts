@@ -27,7 +27,11 @@ const singlePostSlice = createSlice({
     setComment(state, action) {
       const { comment } = action.payload;
       console.log('New Comment:', comment);
-      state.currentPost.comments.push(comment);
+    //   state.currentPost.comments.push(comment);
+     state.currentPost = {
+        ...state.currentPost,
+        comments: [...state.currentPost.comments, comment],
+      };
     },
   },
 });
