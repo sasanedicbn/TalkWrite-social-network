@@ -33,20 +33,7 @@ const Date = ({ post }) => {
   };
 
   
-  // const handleDeleteComment = async (commentId) => {
-  //   try {
-  //     const status = await deleteCommentApi(commentId);
-  //     const comments = await CommentsApi(post.post_id); 
-  //     if (status === 200) {
-  //       dispatch(deleteComment(commentId));
-  //       dispatch(getComments(comments));
-  //     } else {
-  //       console.error('Failed to delete comment:', status);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error deleting comment:', error);
-  //   }
-  // };
+ 
   return (
     <div className="date-container">
     <p className='userPost-date'><FaRegCalendarAlt size={24} />{formatedDate(post.created_at)}</p>
