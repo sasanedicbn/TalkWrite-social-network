@@ -4,10 +4,16 @@ import ContentPost from "./ContentPost";
 import PostBtns from "./Btns/PostBtns";
 import Comments from "./Comments/Comments";
 import Comment from "./Comments/Comment";
+import { useState } from "react";
 
 const ClickedPost = () => {
+    const [activePost, setActivePost] = useState(true)
     const post = useSelector(state => state.post.currentPost);
     
+    const closeActivePost = () => {
+        setActivePost(false)
+    }
+
     if (!post) {
         return (
             <div className="clickedPost-overlay">
