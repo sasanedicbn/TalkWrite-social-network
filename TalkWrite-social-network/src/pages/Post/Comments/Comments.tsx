@@ -32,18 +32,6 @@ const Comments = () => {
   );
 };
 
-{/* <div className="comments-container">
-<h3>{usersComments.length + ' comments'}</h3>
-{usersComments.map((user, index) => (
-    <div key={index}>
-        <HeaderPosts post={user} />
-        <div className="container-comments-text">
-            <p className="comments-text">{user.text}</p>
-            <span><FaTrash /></span>
-        </div>
-    </div>
-))}
-</div> */}
 
 export default Comments;
 
