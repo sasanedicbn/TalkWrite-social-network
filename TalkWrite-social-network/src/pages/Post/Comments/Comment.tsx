@@ -1,11 +1,12 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AddCommentApi } from '../../../api/AddCommentApi';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { setComment } from '../../../store/singlePostSlice';
+import { getComments, setComment } from '../../../store/singlePostSlice';
+import { CommentsApi } from '../../../api/CommentsApi';
 
 const schema = z.object({
   comment: z.string().min(1, "Comment cannot be empty")
@@ -19,12 +20,17 @@ const Comment = ({ postId }) => {
     mode: 'onChange'
   });
   const dispatch = useDispatch()
+  const singlePostComments = useSelector(state => state.post.currentPost.comments)
+  console.log('RADOJKA',singlePostComments)
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
      
       const newCommentText = data.comment;
-      const { comment } = await AddCommentApi(postId, newCommentText);
+      console.log('newCommentText', newCommentText)
+      const  comment  = await AddCommentApi(postId, newCommentText);
+      console.log('{comment}', comment)
+      console.log('OVO TREBA ICI U KOMENTARE', comment)
       // const [comments] = await CommentsApi(postId)
 
       if (comment) {
