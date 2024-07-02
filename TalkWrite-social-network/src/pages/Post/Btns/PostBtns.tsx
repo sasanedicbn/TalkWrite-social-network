@@ -25,7 +25,7 @@ const PostBtns = ({ liked, likes, comments, post_id,  }) => {
 
     return (
         <div id="postsBtns-container">
-           <LikeBtn liked={liked} likes={likes}/>
+           <LikeBtn liked={liked} likes={likes} post_id={post_id}/>
            <CommentBtn showPostHandler={showPostHandler} comments={comments} post_id={post_id}/>
             {post_id === activeId && <ClickedPost />}
         </div>

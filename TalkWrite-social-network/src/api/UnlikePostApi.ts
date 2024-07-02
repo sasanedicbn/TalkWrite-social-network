@@ -1,6 +1,7 @@
+import { toast } from "react-toastify";
 
 
-export default async function unlikePost(id: string) {
+export default async function UnlikePostApi(id: string) {
     const baseUrl = 'https://api.hr.constel.co/api/v1';
   try {
     const jwt = localStorage.getItem('jwt');
