@@ -28,13 +28,28 @@ const postsSlice = createSlice({
   
     deletePost(state, action) {
       const postId = action.payload;
-
       state.posts = state.posts.posts.filter(post => post.post_id !== postId);
     },
+    likePost(state, action){
+      const id = action.payload
+      const currPost = state.posts.filter((post) => post.post_id === id)
+      if(!currPost) return;
+
+      currPost.likes ++;
+      currPost.liked = true;
+    },
+    unlikePost(state, action){
+      const id = action.payload
+      const currPost = state.posts.filter((post) => post.post_id === id)
+      if(!currPost) return;
+
+      currPost.likes ++;
+      currPost.liked = true;
+    }
    
   },
 });
 
-export const { getPosts, toggleLike,addPost,deletePost, } = postsSlice.actions;
+export const { getPosts, toggleLike,addPost,deletePost, likePost, unlikePost} = postsSlice.actions;
 
 export default postsSlice.reducer;
