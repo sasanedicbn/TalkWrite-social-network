@@ -1,4 +1,6 @@
-export default async function likePost(id: string) {
+import { toast } from "react-toastify";
+
+export default async function LikePostApi(id: string) {
     const baseUrl = 'https://api.hr.constel.co/api/v1';
     try {
       const jwt = localStorage.getItem('jwt');
