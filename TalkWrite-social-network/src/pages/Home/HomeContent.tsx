@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { useDispatch } from 'react-redux';
 import { AddPostApi } from "../../api/AddPostApi";
 import { addPost } from "../../store/postsSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 const schema = z.object({
   postContent: z.string().min(1, "Post content cannot be empty")
@@ -26,9 +27,11 @@ const HomeContent = () => {
             const newPost = await AddPostApi(content);
             if (newPost) {
                 dispatch(addPost(newPost));
+                toast.success("Post added successfully!", {position: 'top-right'});
             }
             reset()
         } catch (error) {
+            toast.error("Failed to add post. Please try again.", {  position: 'top-right'});
             console.error('Greška prilikom dodavanja posta:', error);
         }
         console.log(content);
@@ -60,6 +63,7 @@ const HomeContent = () => {
                         </button>
                     </div>
                 </form>
+                <ToastContainer/>
             </div>
             <SinglePost />
         </div>

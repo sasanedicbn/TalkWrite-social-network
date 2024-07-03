@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AddCommentApi } from '../../../api/AddCommentApi';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getComments, setComment } from '../../../store/singlePostSlice';
-import { CommentsApi } from '../../../api/CommentsApi';
+import {  setComment } from '../../../store/singlePostSlice';
 
 const schema = z.object({
   comment: z.string().min(1, "Comment cannot be empty")
@@ -15,31 +14,25 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 const Comment = ({ postId }) => {
-  const { register, handleSubmit, watch, formState: { isValid } } = useForm<FormFields>({
+  const { register, handleSubmit, watch, formState: { isValid }, reset } = useForm<FormFields>({
     resolver: zodResolver(schema),
     mode: 'onChange'
   });
   const dispatch = useDispatch()
-  const singlePostComments = useSelector(state => state.post.currentPost.comments)
-  console.log('RADOJKA',singlePostComments)
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
-    try {
-     
+    try { 
       const newCommentText = data.comment;
-      console.log('newCommentText', newCommentText)
       const  comment  = await AddCommentApi(postId, newCommentText);
-      console.log('{comment}', comment)
-      console.log('OVO TREBA ICI U KOMENTARE', comment)
-      // const [comments] = await CommentsApi(postId)
+
 
       if (comment) {
         dispatch(setComment({postId,comment}))
-        // dispatch(getComments(comments))
-        toast.success("Comment added successfully!");
+        toast.success("Comment added successfully!", {position: 'top-center'});
+        reset()
       }
     } catch (error) {
-      toast.error("Failed to add comment. Please try again.");
+      toast.error("Failed to add comment. Please try again.", {  position: 'top-center'});
     }
   };
 
@@ -65,7 +58,7 @@ const Comment = ({ postId }) => {
           </svg>
         </button>
       </form>
-      <ToastContainer />
+      <ToastContainer/>
     </div>
   );
 };
