@@ -14,7 +14,7 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 const HomeContent = () => {
-    const { register, handleSubmit, formState: { isValid } } = useForm<FormFields>({
+    const { register, handleSubmit, formState: { isValid }, reset } = useForm<FormFields>({
         resolver: zodResolver(schema),
         mode: 'onChange'
     });
@@ -27,6 +27,7 @@ const HomeContent = () => {
             if (newPost) {
                 dispatch(addPost(newPost));
             }
+            reset()
         } catch (error) {
             console.error('Greška prilikom dodavanja posta:', error);
         }
