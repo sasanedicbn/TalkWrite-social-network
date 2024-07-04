@@ -419,6 +419,7 @@ form img, .profile-img{
   right: 72.5px;
   top: 75px;
   border: 1px solid rgb(223, 223, 223);
+  transition: all 1s ease-in;
 }
 .dropDownMenu div{
   display: flex;
@@ -429,7 +430,7 @@ form img, .profile-img{
   height: 24px;
   margin: .28rem;
   cursor: pointer;
-  color: #1b5da3;;
+  color: blue;
 }
 .dropDownMenu div p{
   font-size: 20px;
