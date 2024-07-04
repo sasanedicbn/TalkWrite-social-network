@@ -1,6 +1,13 @@
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
+import { useHistory } from 'react-router-dom'; 
 
 const DropDownMenu = () => {
+    const logOutUser = () => {
+        const history = useHistory()
+        localStorage.removeItem('jwt')
+        history.push('/')
+        
+    }
     return(
         <div className="dropDownMenu">
           <div>
