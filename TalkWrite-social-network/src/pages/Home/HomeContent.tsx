@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { AddPostApi } from "../../api/AddPostApi";
 import { addPost } from "../../store/postsSlice";
 import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const schema = z.object({
   postContent: z.string().min(1, "Post content cannot be empty")
