@@ -412,14 +412,28 @@ form img, .profile-img{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  background-color: rgb(235, 231, 231);
+  border-radius: .5rem;
+  padding: .5rem;
+  position: absolute;
+  right: 72.5px;
+  top: 75px;
+  border: 1px solid rgb(223, 223, 223);
 }
 .dropDownMenu div{
   display: flex;
+  margin: 0.3rem;
 }
 .dropDownMenu div svg {
   width: 24px;
   height: 24px;
+  margin: .28rem;
+  cursor: pointer;
+  color: #1b5da3;;
 }
 .dropDownMenu div p{
   font-size: 20px;
+  margin: .28rem;
+  cursor: pointer;
+  
 }
