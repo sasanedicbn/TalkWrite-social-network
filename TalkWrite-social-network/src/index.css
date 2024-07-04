@@ -404,3 +404,22 @@ form img, .profile-img{
   color: rgb(236, 82, 82);
   cursor: pointer;
 }
+/* DROPDOWNMENU */
+.dropDownMenu{
+  width: 150px;
+  height: 100px;
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.dropDownMenu div{
+  display: flex;
+}
+.dropDownMenu div svg {
+  width: 24px;
+  height: 24px;
+}
+.dropDownMenu div p{
+  font-size: 20px;
+}

@@ -2,7 +2,7 @@ import { FaSignOutAlt, FaUser } from "react-icons/fa";
 
 const DropDownMenu = () => {
     return(
-        <div>
+        <div className="dropDownMenu">
           <div>
             <FaUser/>
             <p>My Profile</p>
