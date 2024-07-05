@@ -492,3 +492,24 @@ form img, .profile-img{
     padding: 1rem;
    }
 }
+/* SPINNER  */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.spinner-icon {
+  animation: spin 1s linear infinite;
+  color: blue; 
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
