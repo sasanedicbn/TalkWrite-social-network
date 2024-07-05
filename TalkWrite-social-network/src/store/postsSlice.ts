@@ -1,49 +1,52 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-
+const initialState = {
+  posts: [],
+};
 
 const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    getPosts(state, action: PayloadAction<Post[]>) {
+    getPosts(state, action) {
       state.posts = action.payload;
     },
-    addPost(state, action: PayloadAction<Post>) {
+    addPost(state, action) {
       const addPost = action.payload;
       console.log('addpostfromSLICE', addPost);
-      if (addPost) {
-        state.posts.push(addPost);
-      }
+      if(addPost){
+        state.posts.posts.push(addPost)}
     },
-    toggleLike(state, action: PayloadAction<string>) {
+    toggleLike(state, action) {
       const postId = action.payload;
       console.log('postId', postId);
-      const post = state.posts.find(post => post.post_id === postId);
+      const post = state.posts.posts.find(post => post.post_id === postId);
       if (post) {
         console.log('toggleLike working');
       }
     },
-    deletePost(state, action: PayloadAction<string>) {
+  
+    deletePost(state, action) {
       const postId = action.payload;
-      state.posts = state.posts.filter(post => post.post_id !== postId);
+      state.posts = state.posts.posts.filter(post => post.post_id !== postId);
     },
-    likePost(state, action: PayloadAction<string>) {
+    likePost(state, action){
       const id = action.payload;
-      const currPost = state.posts.find(post => post.post_id === id);
-      if (!currPost) return;
+      const currPost = state.posts.posts.find((post) => post.post_id === id);
+      if(!currPost) return;
 
       currPost.likes++;
       currPost.liked = true;
     },
-    unlikePost(state, action: PayloadAction<string>) {
+    unlikePost(state, action){
       const id = action.payload;
-      const currPost = state.posts.find(post => post.post_id === id);
-      if (!currPost) return;
+      const currPost = state.posts.posts.find((post) => post.post_id === id);
+      if(!currPost) return;
 
       currPost.likes--;
       currPost.liked = false;
-    },
+    }
+   
   },
 });
 

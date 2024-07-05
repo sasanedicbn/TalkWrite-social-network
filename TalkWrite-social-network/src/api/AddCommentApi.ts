@@ -1,8 +1,7 @@
-export const AddCommentApi = async (id: string, newComment: { newCommentText: string })=> {
+
+export const AddCommentApi = async (id:string, newCommentText:string) => {
   const baseUrl = 'https://api.hr.constel.co/api/v1';
   const jwt = localStorage.getItem('jwt');
-
-  if (!jwt) return;
 
   try {
     const response = await fetch(`${baseUrl}/posts/${id}/comments`, {
@@ -12,7 +11,7 @@ export const AddCommentApi = async (id: string, newComment: { newCommentText: st
         'Authorization': `Bearer ${jwt}`,
       },
       body: JSON.stringify({
-        text: newComment.newCommentText
+        text: newCommentText
       })
     });
 
@@ -21,7 +20,7 @@ export const AddCommentApi = async (id: string, newComment: { newCommentText: st
     }
 
     const data = await response.json();
-    console.log('RADUUUUU', data.comment);
+    console.log('RADUUUUU', data.comment);    
     return data.comment;
   } catch (error) {
     console.error('Error:', error);

@@ -12,8 +12,11 @@ const baseUrl = 'https://api.hr.constel.co/api/v1';
         Authorization: 'Bearer ' + jwt,
       },
     });
+    console.log('RESPONSE IZ DELETEA', response)
 
     if (response.status == 400) {
+      const {error} = await response.json()
+      console.log('error za delete post', error)
       return;
     }
 
