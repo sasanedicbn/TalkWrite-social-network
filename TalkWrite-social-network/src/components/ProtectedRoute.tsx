@@ -5,8 +5,9 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../store/userSlice';
 import { getPosts } from '../store/postsSlice';
 import { useEffect, useState } from 'react';
+import { ProtectedRouteProps } from '../types/postsType';
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ children }:ProtectedRouteProps) => {
   const dispatch = useDispatch();
   const token = localStorage.getItem('jwt');
   const [loading, setLoading] = useState(true);
@@ -17,8 +18,6 @@ const ProtectedRoute = ({ children }) => {
         if (token) {
           const userData = await UserApi();
           const userPosts = await UserPosts();
-          // console.log('proteceteduserdata', userData);
-          // console.log('USRAZ POST', userPosts);
           dispatch(setUser(userData));
           dispatch(getPosts(userPosts));
         }
