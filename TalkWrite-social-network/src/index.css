@@ -455,6 +455,9 @@ form img, .profile-img{
     padding-top: 5rem;
     width: 70%;
   }
+  .dropDownMenu{
+    right: 160px;
+  }
 }
 @media screen and (max-width: 768px) {
   .container-homecontent{
@@ -466,5 +469,26 @@ form img, .profile-img{
    .container-profileHome{
     right: 16%;
   }
+  .dropDownMenu{
+    right:55px;
+  }
+  .clickedPost-container{
+   left: 50%;
+   width: 80%;
+  }
 }
-
+@media screen and (max-width: 558px) {
+  .container-homecontent{
+    width: 100%;
+  }
+  .sideBarHome-container{
+    left: 5%;
+  }
+   .container-profileHome{
+    right: 5%;
+  }
+  .clickedPost-container{
+    width: 82.5%;
+    padding: 1rem;
+   }
+}
