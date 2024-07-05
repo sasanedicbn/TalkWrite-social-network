@@ -456,4 +456,15 @@ form img, .profile-img{
     width: 70%;
   }
 }
+@media screen and (max-width: 768px) {
+  .container-homecontent{
+    width: 87.5%;
+  }
+  .sideBarHome-container{
+    left: 16%;
+  }
+   .container-profileHome{
+    right: 16%;
+  }
+}
 
