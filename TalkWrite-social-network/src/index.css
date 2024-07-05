@@ -80,7 +80,6 @@ button.disabled {
 .home-container{
   display: flex;
   justify-content: space-evenly;
-  height: 800px;
   background-color: #f8f8f8;
 }
 form img, .profile-img{
@@ -437,5 +436,24 @@ form img, .profile-img{
   font-size: 20px;
   margin: .28rem;
   cursor: pointer;
-  
 }
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 1000px) {
+  .container-profileHome{
+    position: absolute;
+    right: 27%;
+  }
+  .sideBarHome-home{
+    display: none;
+  }
+  .sideBarHome-container{
+    position: absolute;
+    left: 27%;
+  }
+  .container-homecontent{
+    padding-top: 5rem;
+    width: 70%;
+  }
+}
+
