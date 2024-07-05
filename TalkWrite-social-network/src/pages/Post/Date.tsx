@@ -2,19 +2,18 @@ import { FaRegCalendarAlt, FaTrash } from "react-icons/fa";
 import { formatedDate } from "../../constants/constants";
 import { useSelector, useDispatch } from "react-redux";
 import deletePostApi from "../../api/DeletePostApi";
-import deleteCommentApi from "../../api/DeleteCommentApi";
-import { deletePost, getPosts,  getComments, deleteComment } from "../../store/postsSlice";
+import { deletePost, getPosts } from "../../store/postsSlice";
 import { UserPosts } from "../../api/UserPosts";
-import { CommentsApi } from "../../api/CommentsApi";
+import { RootState } from "../../store/store";
+import { Post } from "../../types/singlePostType";
 
-const Date = ({ post }) => {
-  // console.log('SVE JE OVO POST', post)
+type DateProps = {
+  post: Post;
+}
+
+const Date: React.FC<DateProps> = ({ post }) => {
   const { user } = post;
-  // console.log('IZ DATEAAAA', user)
-  const userName = useSelector(state => state.user.setUser.username);
-  // console.log('userNAAAME', userName)
-  const comments = useSelector(state => state.posts.comments);
-  // console.log('IZ DATEA 2',comments)
+  const userName = useSelector((state: RootState) => state.user.setUser?.username);
   const dispatch = useDispatch();
 
   const handleDeletePost = async () => {
@@ -32,13 +31,11 @@ const Date = ({ post }) => {
     }
   };
 
-  
- 
   return (
     <div className="date-container">
-    <p className='userPost-date'><FaRegCalendarAlt size={24} />{formatedDate(post.created_at)}</p>
-    {user?.username === userName ? <p id="date-delete" onClick={handleDeletePost}><FaTrash /> Delete</p> : ''}
-  </div>
+      <p className='userPost-date'><FaRegCalendarAlt size={24} />{formatedDate(post.created_at)}</p>
+      {user?.username === userName ? <p id="date-delete" onClick={handleDeletePost}><FaTrash /> Delete</p> : ''}
+    </div>
   );
 };
 

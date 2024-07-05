@@ -21,7 +21,7 @@ const LogIn = () => {
     });
 
     const onSubmit: SubmitHandler<FormFields> = async (data) => {
-        const result = await Login(data, navigate);
+        const result = await Login(data);
         console.log(result);
         if (result.status === 'error') {
             setErrorMessage(result.message);

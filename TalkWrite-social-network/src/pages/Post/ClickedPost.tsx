@@ -5,18 +5,16 @@ import PostBtns from "./Btns/PostBtns";
 import Comments from "./Comments/Comments";
 import Comment from "./Comments/Comment";
 import { useState } from "react";
+import { RootState } from "../../store/store";
 
 const ClickedPost = () => {
     const [activePost, setActivePost] = useState(true)
-    const post = useSelector(state => state.post.currentPost);
+    const post = useSelector((state:RootState) => state.post.currentPost);
 
-    console.log('STVARNI POSTOVI',post)
     const closeActivePost = () => {
         setActivePost(false)
     }
-   const openActivePost = () => {
-     setActivePost(true)
-   }
+  
     if (!post) {
         return (
             <div className="clickedPost-overlay">
@@ -35,7 +33,7 @@ const ClickedPost = () => {
                   <HeaderPosts post={post} />
                   <ContentPost image={post.image} text={post.text} />
                   <Comment postId={post.post_id} />
-                  <PostBtns  liked={post.liked} likes={post.likes} comments={post.comment} post_id={post.post_id} />
+                  <PostBtns  liked={post.liked} likes={post.likes} comments={post.comments} post_id={post.post_id} />
                   <Comments/>
                 </div>
             </div>
