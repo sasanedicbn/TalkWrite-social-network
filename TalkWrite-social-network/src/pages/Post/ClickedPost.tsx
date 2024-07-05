@@ -10,6 +10,7 @@ const ClickedPost = () => {
     const [activePost, setActivePost] = useState(true)
     const post = useSelector(state => state.post.currentPost);
 
+    console.log('STVARNI POSTOVI',post)
     const closeActivePost = () => {
         setActivePost(false)
     }
