@@ -1,6 +1,5 @@
 
 
-// posts
  export const UserPosts = async () => {
  const baseUrl = 'https://api.hr.constel.co/api/v1';
  const jwt = localStorage.getItem('jwt')
@@ -14,7 +13,6 @@
     },
  })
  const data = await response.json()
-// console.log(data)
  return data
  
  }catch(error){

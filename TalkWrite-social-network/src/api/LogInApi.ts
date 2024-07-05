@@ -1,4 +1,4 @@
-export const Login = async (data) => {
+export const Login = async (data:string) => {
     const baseUrl = 'https://api.hr.constel.co/api/v1';
 
     try {
@@ -22,6 +22,6 @@ export const Login = async (data) => {
         return { status: 'success' };
     } catch (error) {
         console.error('Login error:', error);
-        return { status: 'error', message: error.message || 'Something went wrong' };
+        return { status: 'error'}
     }
 };

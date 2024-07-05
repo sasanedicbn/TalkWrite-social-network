@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-
+import { Comment, Post, SinglePostState } from '../types/singlePostType';
 
 const initialState: SinglePostState = {
   currentPost: {
@@ -41,7 +40,7 @@ const singlePostSlice = createSlice({
       };
       console.log('Current Post Comments After Update:', state.currentPost.comments);
     },
-    setComment(state, action: PayloadAction<{ comment: Comment }>) {
+    setComment(state, action: PayloadAction<{ comment: Comment}>) {
       const { comment } = action.payload;
       state.currentPost = {
         ...state.currentPost,
