@@ -9,26 +9,34 @@ import { getComments, getSinglePost } from '../../../store/singlePostSlice';
 
 const PostBtns = (post) => {
     const [activeId, setActiveId] = useState('');
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-    const {liked, likes, comments, post_id} = post
-    
-    const showPostHandler = async (id:string) => {
+    const { liked, likes, comments, post_id } = post;
+
+    const showPostHandler = async (id: string) => {
         setActiveId(id);
-        const comments =  await  CommentsApi(id)
-        dispatch(getComments(comments))
-        const singlePost = await SinglePostApi(id);
-        dispatch(getSinglePost(singlePost))
+
+        try {
+            const [comments, singlePost] = await Promise.all([
+                CommentsApi(id),
+                SinglePostApi(id)
+            ]);
+
+            dispatch(getComments(comments));
+            dispatch(getSinglePost(singlePost));
+        } catch (error) {
+            console.error('Error fetching post and comments:', error);
+        }
     };
-   
 
     return (
         <div id="postsBtns-container">
-           <LikeBtn liked={liked} likes={likes} post_id={post_id}/>
-           <CommentBtn showPostHandler={showPostHandler} comments={comments} post_id={post_id}/>
+            <LikeBtn liked={liked} likes={likes} post_id={post_id} />
+            <CommentBtn showPostHandler={showPostHandler} comments={comments} post_id={post_id} />
             {post_id === activeId && <ClickedPost />}
         </div>
     );
 };
 
 export default PostBtns;
+
