@@ -6,4 +6,5 @@ const CommentBtn = ({showPostHandler, post_id, comments}) => {
         <FaRegComment size={24} className='comment-icon' />{comments}
     </button>
     )
-}rt default CommentBtn;
+}
+export default CommentBtn;
