@@ -23,7 +23,6 @@ const ClickedPost = () => {
         );
     }
 
-    console.log(post, 'POSTOVANJEBRE')
     return (
         activePost && (
         <>
@@ -34,7 +33,7 @@ const ClickedPost = () => {
                   <HeaderPosts post={post} />
                   <ContentPost image={post.image} text={post.text} />
                   <Comment postId={post.post_id} />
-                  <PostBtns  liked={post.liked} likes={post.likes} post={post} post_id={post.post_id} />
+                  {/* <PostBtns   post={post}  /> */}
                   <Comments/>
                 </div>
             </div>
