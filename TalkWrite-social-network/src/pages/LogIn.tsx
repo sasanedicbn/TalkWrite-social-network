@@ -18,7 +18,6 @@ const LogIn = () => {
     mode: 'onChange'
   });
 
-
   const isSpinnerVisible = useSelector((state: RootState) => state.spinner.loading);
 // spinner popravit setSpinner
   const onSubmit: SubmitHandler<FormFieldsLogIn> = async (data) => {

@@ -18,8 +18,11 @@ const Date: React.FC<DateProps> = ({ post }) => {
 
   const handleDeletePost = async () => {
     try {
-      const status = await deletePostApi(post.post_id);
-      const posts = await UserPosts();
+      const [status, posts] = await Promise.all([
+        deletePostApi(post.post_id),
+        UserPosts()
+      ])
+      
       if (status === 200) {
         dispatch(deletePost(post.post_id));
         dispatch(getPosts(posts));

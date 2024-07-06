@@ -1,4 +1,4 @@
-export const Login = async (data:string) => {
+export const Login = async (data:any) => {
     const baseUrl = 'https://api.hr.constel.co/api/v1';
 
     try {

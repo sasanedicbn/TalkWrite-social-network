@@ -1,26 +1,21 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { useDispatch } from 'react-redux';
 import { AddCommentApi } from '../../../api/AddCommentApi';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {  setComment } from '../../../store/singlePostSlice';
+import { FormFieldsComment, schemaComment } from '../../../validation/validation';
 
-const schema = z.object({
-  comment: z.string().min(1, "Comment cannot be empty")
-});
-
-type FormFields = z.infer<typeof schema>;
 
 const Comment = ({ postId }) => {
-  const { register, handleSubmit, watch, formState: { isValid }, reset } = useForm<FormFields>({
-    resolver: zodResolver(schema),
+  const { register, handleSubmit, watch, formState: { isValid }, reset } = useForm<FormFieldsComment>({
+    resolver: zodResolver(schemaComment),
     mode: 'onChange'
   });
   const dispatch = useDispatch()
 
-  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+  const onSubmit: SubmitHandler<FormFieldsComment> = async (data) => {
     try { 
       const newCommentText = data.comment;
       const  comment  = await AddCommentApi(postId, newCommentText);
