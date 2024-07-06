@@ -1,6 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Login } from '../api/LogInApi';
@@ -8,27 +7,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showSpinner, hideSpinner } from '../store/Globall/SpinnerSlice'; 
 import { RootState } from '../store/store'; 
 import Spinner from '../store/Globall/Spinner';
-
-const schema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6),
-});
-
-type FormFields = z.infer<typeof schema>;
+import { FormFieldsLogIn, schemaLogIn } from '../validation/validation';
 
 const LogIn = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { register, handleSubmit, formState: { isValid } } = useForm<FormFields>({
-    resolver: zodResolver(schema),
+  const { register, handleSubmit, formState: { isValid } } = useForm<FormFieldsLogIn>({
+    resolver: zodResolver(schemaLogIn),
     mode: 'onChange'
   });
 
 
   const isSpinnerVisible = useSelector((state: RootState) => state.spinner.loading);
-
-  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+// spinner popravit setSpinner
+  const onSubmit: SubmitHandler<FormFieldsLogIn> = async (data) => {
     dispatch(showSpinner()); 
     try {
       const result = await Login(data);
