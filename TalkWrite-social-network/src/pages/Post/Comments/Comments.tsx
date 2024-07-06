@@ -3,26 +3,26 @@ import HeaderPosts from '../HeaderPosts';
 import { FaTrash } from 'react-icons/fa';
 import deleteCommentApi from '../../../api/DeleteCommentApi';
 import { deleteComment } from '../../../store/singlePostSlice';
+import Spinner from '../../../store/Globall/Spinner';
+import { RootState } from '../../../store/store';
 
 const Comments = () => {
-  const usersComments = useSelector(state => state.post.currentPost.comments);
-  const userName = useSelector(state => state.user.setUser.username);
-  const currentPostId = useSelector(state => state.post.currentPost.user_id)
-  // console.log('current post za api', currentPost)
+  const usersComments = useSelector((state:RootState) => state.post.currentPost.comments);
+  const userName = useSelector((state:RootState) => state.user.setUser?.username);
+  const currentPostId = useSelector((state:RootState) => state.post.currentPost.user_id)
 
-  console.log(usersComments)
   const dispatch = useDispatch()
 
-  console.log('COMMENTS', usersComments);
+
 
   if (!usersComments) {
     return (
       <div>
-        Loading...
+         <Spinner/>
       </div>
     );
   }
-   const handleDeleteComment = async (postId,commentId) => {
+   const handleDeleteComment = async (postId:string,commentId:string) => {
     console.log(commentId)
     try {
       const status = await deleteCommentApi(postId,commentId);

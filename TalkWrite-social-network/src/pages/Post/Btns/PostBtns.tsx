@@ -6,12 +6,15 @@ import LikeBtn from './LikeBtn';
 import CommentBtn from './CommentBtn';
 import { CommentsApi } from '../../../api/CommentsApi';
 import { getComments, getSinglePost } from '../../../store/singlePostSlice';
+import { Post } from '../../../types/singlePostType';
 
-const PostBtns = ({ liked, likes, comments, post_id,  }) => {
-    const [activeId, setActiveId] = useState(null);
+const PostBtns = (post:Post) => {
+    const [activeId, setActiveId] = useState('');
     const dispatch = useDispatch()
 
-    const showPostHandler = async (id) => {
+    const {liked, likes, comments, post_id} = post
+    
+    const showPostHandler = async (id:string) => {
         setActiveId(id);
       const comments =  await  CommentsApi(id)
       console.log('000-0-0-0-0-KOMENTARI ZA TAJ POST',comments)
@@ -19,7 +22,7 @@ const PostBtns = ({ liked, likes, comments, post_id,  }) => {
        const singlePost = await SinglePostApi(id);
        console.log('singlePost iz postbtns', singlePost)
        dispatch(getSinglePost(singlePost))
-    
+
     };
    
 
