@@ -29,9 +29,15 @@ export type Post = {
 export type SinglePostState = {
     currentPost: Post;
   };
-
+  
  export type CommentBtnTypes = {
     showPostHandler:(id: string) => Promise<void>,
     post_id:string,
     comments: number,
+}
+
+export type LikeBtnType = {
+  likes:number,
+  liked:boolean,
+  post_id:string,
 }
