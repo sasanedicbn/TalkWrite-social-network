@@ -5,13 +5,13 @@ import HeaderPosts from './HeaderPosts';
 import { RootState } from '../../store/store';
 
 const UserPost = () => {
-    const postsData = useSelector((state:RootState) => state.posts.posts);
-    const { posts } = postsData;
+    const posts = useSelector((state:RootState) => state.posts.posts.posts);
+    
     
 
     return (
         <div className='userPost-container'>
-            {posts?.map((post:any, index:string) => (
+            {posts?.map((post:any, ) => (
                 <>
                  <HeaderPosts post={post} />
                  <ContentPost image={post.image} text={post.text} />

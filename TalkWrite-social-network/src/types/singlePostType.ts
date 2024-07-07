@@ -24,6 +24,7 @@ export type Post = {
     likes: number;
     user: User;
     user_id: string;
+    
   };
   
 export type SinglePostState = {
