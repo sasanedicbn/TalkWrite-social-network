@@ -17,7 +17,7 @@ export type Post = {
     audio: string | null;
     post_id: string;
     text: string;
-    comments: Comment[];
+    comments: Comment[] | undefined;
     created_at: string;
     image: string;
     liked: boolean;
@@ -29,7 +29,7 @@ export type Post = {
 export type SinglePostState = {
     currentPost: Post;
   };
-  
+
  export type CommentBtnTypes = {
     showPostHandler:(id: string) => Promise<void>,
     post_id:string,
@@ -40,4 +40,15 @@ export type LikeBtnType = {
   likes:number,
   liked:boolean,
   post_id:string,
+}
+
+export type SinglePost = {
+  comments: number,
+  liked:boolean,
+  likes: number,
+  post_id: string,
+}
+
+export type CommentType = {
+  postId: string
 }

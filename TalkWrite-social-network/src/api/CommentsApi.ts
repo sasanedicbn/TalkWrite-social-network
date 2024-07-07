@@ -1,5 +1,5 @@
 
-export const CommentsApi = async (id) => {
+export const CommentsApi = async (id:string) => {
     const baseUrl = 'https://api.hr.constel.co/api/v1';
     const jwt = localStorage.getItem('jwt')
 
@@ -20,7 +20,7 @@ export const CommentsApi = async (id) => {
         const {comments} = data
         console.log('IZ API Comment', comments)
 
-        return comments
+        return [comments]
         
        
     } catch (error) {
