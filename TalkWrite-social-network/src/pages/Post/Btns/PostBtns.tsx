@@ -10,8 +10,9 @@ import { getComments, getSinglePost } from '../../../store/singlePostSlice';
 const PostBtns = (post) => {
     const [activeId, setActiveId] = useState('');
     const dispatch = useDispatch();
-
+    console.log('postsssssbtn', post)
     const { liked, likes, comments, post_id } = post;
+    console.log('iz PostBtns',liked, likes, comments, post_id)
 
     const showPostHandler = async (id: string) => {
         setActiveId(id);

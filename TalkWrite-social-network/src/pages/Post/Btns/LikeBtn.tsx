@@ -7,7 +7,7 @@ import LikePostApi from "../../../api/LikePostApi";
 
 const LikeBtn = ({ likes, liked, post_id }) => {
   const dispatch = useDispatch();
-
+  console.log('LIKEBTN', likes, liked, post_id )
   const handleLikePost = async () => {
     try {
       if (liked) {

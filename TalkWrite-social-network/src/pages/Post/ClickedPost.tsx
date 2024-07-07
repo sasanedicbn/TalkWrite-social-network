@@ -14,7 +14,7 @@ const ClickedPost = () => {
     const closeActivePost = () => {
         setActivePost(false)
     }
-  
+     console.log('iz clickeda',post)
     if (!post) {
         return (
             <div className="clickedPost-overlay">
@@ -33,7 +33,7 @@ const ClickedPost = () => {
                   <HeaderPosts post={post} />
                   <ContentPost image={post.image} text={post.text} />
                   <Comment postId={post.post_id} />
-                  {/* <PostBtns   post={post}  /> */}
+                  <PostBtns   post={post}  />
                   <Comments/>
                 </div>
             </div>

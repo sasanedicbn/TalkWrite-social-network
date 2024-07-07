@@ -29,3 +29,9 @@ export type Post = {
 export type SinglePostState = {
     currentPost: Post;
   };
+
+ export type CommentBtnTypes = {
+    showPostHandler:(id: string) => Promise<void>,
+    post_id:string,
+    comments: number,
+}
